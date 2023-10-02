@@ -14,10 +14,10 @@ int check_cycle(listint_t *lists)
 	/*move slow ptr 1 node at a time and fast two nodes*/
 	while (slow != NULL && fast != NULL)
 	{
+		if (fast->next->next == slow)
+			return (1);
 		slow = slow->next;
 		fast = fast->next->next;
-		if (fast == slow)
-			return (1);
 	}
 
 	return (0);
