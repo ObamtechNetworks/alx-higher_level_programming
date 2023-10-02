@@ -10,6 +10,7 @@ int check_cycle(listint_t *lists)
 	listint_t *slow = NULL;
 	listint_t *fast = NULL;
 
+	/*EDGE CASES */
 	if (lists == NULL)
 		return (0);
 
@@ -17,10 +18,11 @@ int check_cycle(listint_t *lists)
 	fast = lists;
 	/*traverse the pointers through the list*/
 	/*move slow ptr 1 node at a time and fast two nodes*/
-	while (slow != NULL && fast != NULL)
+	while (slow != NULL && fast != NULL && fast->next != NULL)
 	{
 		slow = slow->next;
 		fast = fast->next->next;
+		/*RETURN 1 IF FAST MEETS SLOW*/
 		if (fast == slow)
 			return (1);
 	}
