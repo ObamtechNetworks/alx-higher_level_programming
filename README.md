@@ -1,13 +1,13 @@
-> 0x00. Python - Hello, World
+# 0x00. Python - Hello, World
 - So finally, today, I begin my journey of Higher Level Programming at ALX
 - This project at ALX is authored:
 - By: Guillaume
 - Weight: 1
 
->> Learning Objectives
+## Learning Objectives
 - At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
->>> General
+### General
 - Why Python programming is awesome
 - Who created Python
 - Who is Guido van Rossum
@@ -19,8 +19,8 @@
 - What are indexing and slicing in Python
 - What is the official Python coding style and how to check your code with pycodestyle
 
->> Requirements
->>> Python Scripts
+## Requirements
+### Python Scripts
 - Allowed editors: vi, vim, emacs
 - All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
 - All your files should end with a new line
@@ -31,7 +31,7 @@
 - All your files must be executable
 - The length of your files will be tested using wc
 
->>> Shell Scripts
+### Shell Scripts
 - Allowed editors: vi, vim, emacs
 - All your scripts will be tested on Ubuntu 20.04 LTS
 - All your scripts should be exactly two lines long (wc -l file should print 2)
@@ -39,7 +39,7 @@
 - The first line of all your files should be exactly #!/bin/bash
 - All your files must be executable
 
->>> C Scripts
+### C Scripts
 - Allowed editors: vi, vim, emacs
 - All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 - All your files should end with a new line
@@ -51,9 +51,9 @@
 - Don’t forget to push your header file
 - All your header files should be include guarded
 
->> More Info
->>> Zen
-* The Zen of Python, by Tim Peters
+## More Info
+### Zen
+> The Zen of Python, by Tim Peters
 
 ```
 Beautiful is better than ugly.
@@ -77,7 +77,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 ```
 
->>> Pycodestyle
+### Pycodestyle
 - Pycodestyle is now the new standard of Python style code
 
->>> So that's it guys! as I enjoy this journey!
+### So that's it guys! as I enjoy this journey!
