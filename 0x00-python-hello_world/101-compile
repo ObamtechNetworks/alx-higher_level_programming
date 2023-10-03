@@ -1,5 +1,5 @@
 #!/bin/bash
-/usr/bin/python3 -m py_compile $PYFILE
 echo "Compiling main.py ..."
+/usr/bin/python3 -m py_compile $PYFILE
 mv __pycache__/main.cpython*.pyc main.pyc
 rm -r __pycache__
