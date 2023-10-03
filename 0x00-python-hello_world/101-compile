@@ -1,0 +1,5 @@
+#!/bin/bash
+/usr/bin/python3 -m py_compile $PYFILE
+
+# rename the file to main.pyc and move to cur directory
+mv __pycache__/main.cpython*.pyc main.pyc
