@@ -7,4 +7,3 @@ def fizzbuzz():
                     fbz if i % 15 == 0 else fiz if i % 3 == 0 else
                     buz if i % 5 == 0 else i),
                 end=' ')
-    print()
