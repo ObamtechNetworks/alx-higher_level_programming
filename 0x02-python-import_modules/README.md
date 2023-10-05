@@ -3,11 +3,11 @@
 # What is a module?
 A module is a file containing python definitions and statements. This filename is the module with the suffix '.py' appended
 > My understanding
-### * In Python, the '__name__' variable is a special variable that holds the name of the current module. *
-### > It is a global variable meaning it can be accessd from anywhere within the module *
+### *In Python, the '__name__' variable is a special variable that holds the name of the current module.*
+### It is a 'global variable' - meaning it can be accessd from anywhere within the module *
 
 # Learning Objectives
-### > At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+### At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
 ### General
 - Why Python programming is awesome
