@@ -9,6 +9,9 @@ if __name__ == "__main__":
     if length == 1:
         length = 0
         print("{} arguments.".format(length))
+    elif length == 2:
+        length = length - 1
+        print("{} argument:".format(length))
     else:
         length = length - 1
         print("{} arguments:".format(length))
