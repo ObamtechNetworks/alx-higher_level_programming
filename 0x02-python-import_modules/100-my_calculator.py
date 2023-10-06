@@ -15,11 +15,17 @@ if __name__ == "__main__":  # will not run when imported itno another file
     op = args[2]  # operator
     b = int(args[3])  # second operand
     operators = ['+', '-', '/', '*']
- 
-    # check if valid operator is given
-    if op not in operators:
-        print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)
 
     # print the operation if all is satisfied
-    print("{} {} {} = {}".format(a, op, b, add(a, b)))
+    if op == operators[0]:
+        print("{} {} {} = {}".format(a, op, b, add(a, b)))
+    elif op == operators[1]:
+        print("{} {} {} = {}".format(a, op, b, sub(a, b)))
+    elif op == operators[2]:
+        print("{} {} {} = {}".format(a, op, b, div(a, b)))
+    elif op == operators[3]:
+        print("{} {} {} = {}".format(a, op, b, mul(a, b)))
+    else:
+        if op not in operators:  # invalid operators
+            print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
