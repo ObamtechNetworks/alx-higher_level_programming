@@ -7,7 +7,8 @@ def add_tuple(tuple_a=(), tuple_b=()):
         return (tuple_a)
     else:
         if len(tuple_a) == 0 and len(tuple_b) == 0:
-            return None
+            empty = ()
+            return empty
     list_a = list(tuple_a)  # Transform the tuples to a list
     list_b = list(tuple_b)
     list_add = []  # create an empty list for the addition
