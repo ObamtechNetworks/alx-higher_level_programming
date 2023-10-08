@@ -7,13 +7,9 @@ def add_tuple(tuple_a=(), tuple_b=()):
         return (tuple_a)
     elif len(tuple_a) == 0 and len(tuple_b) == 0:
         return (0, 0)
-    list_a = list(tuple_a)  # Transform the tuples to a list
-    list_b = list(tuple_b)
+    list_a = list(tuple_a)[:2]  # Transform the tuples to a list
+    list_b = list(tuple_b)[:2]  # with only first two elements
     list_add = []  # create an empty list for the addition
-    if len(list_a) > 2:  # check if the lengths does not exceed or go below 2
-        list_a = list_a[:2]
-    elif len(list_b) > 2:
-        list_b = list_b[:2]
     # if length == 1
     if len(list_a) < 2:
         list_a.append(0)
