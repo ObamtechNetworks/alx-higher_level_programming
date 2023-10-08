@@ -8,18 +8,17 @@ def add_tuple(tuple_a=(), tuple_b=()):
     else:
         if len(tuple_a) == 0 and len(tuple_b) == 0:
             return None
-    # Transform the tuples to a list
-    list_a = list(tuple_a)
+    list_a = list(tuple_a)  # Transform the tuples to a list
     list_b = list(tuple_b)
     list_add = []  # create an empty list for the addition
     if len(list_a) > 2:  # check if the lengths does not exceed or go below 2
         list_a = list_a[:2]
-    if len(list_b) > 2:
+    elif len(list_b) > 2:
         list_b = list_b[:2]
     # if length == 1
-    if len(list_a) == 1:
+    if len(list_a) < 2:
         list_a.append(0)
-    if len(list_b) == 1:
+    elif len(list_b) < 2:
         list_b.append(0)
     for i in range(len(list_a)):  # LOOP THROUGH list_a and list_b
         j = i
