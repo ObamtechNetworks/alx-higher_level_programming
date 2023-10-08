@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 def add_tuple(tuple_a=(), tuple_b=()):
     # edge cases if tuples are empty
     if len(tuple_a) == 0 and len(tuple_b) != 0:
@@ -6,8 +6,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
     elif len(tuple_b) == 0 and len(tuple_a) != 0:
         return (tuple_a)
     elif len(tuple_a) == 0 and len(tuple_b) == 0:
-        empty = ()
-        return empty
+            return (0, 0)
     list_a = list(tuple_a)  # Transform the tuples to a list
     list_b = list(tuple_b)
     list_add = []  # create an empty list for the addition
@@ -20,7 +19,11 @@ def add_tuple(tuple_a=(), tuple_b=()):
         list_a.append(0)
     elif len(list_b) < 2:
         list_b.append(0)
-    # since it's just list of len 2, we can just access index directly
-    list_add = [list_a[0] + list_b[0], list_a[1] + list_b[1]]
+    for i in range(len(list_a)):  # LOOP THROUGH list_a and list_b
+        j = i
+        while j in range(len(list_b)):
+            # append the sum of first element of each list
+            list_add.append(list_a[i] + list_b[j])
+            break  # break inner loop to move to second element
     new_tuple = tuple(list_add)  # CONVERT THE NEW LIST TO TUPLE
     return new_tuple  # return the new tuple
