@@ -2,8 +2,7 @@
 def divisible_by_2(my_list=[]):
     # Edge cases | empty list
     if len(my_list) == 0:
-        new_list[0] = False
-        return new_list
+        return False
     # start an empty list
     new_list = []
     # Loop through original list
