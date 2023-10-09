@@ -9,11 +9,11 @@ def add_tuple(tuple_a=(), tuple_b=()):
             return (tuple_a)
         elif len(tuple_a) == 0 and len(tuple_b) == 0:
             return (0, 0)
-        # get only two el from the tuple, concat 0 tuple as arg if need be
+        # get only two el from the tuple, concat 0 tuple as 2nd idx if need be
         tup_a = tuple_a[:2] + (0,) * len(tuple_a)
         tup_b = tuple_b[:2] + (0,) * len(tuple_b)
-        # since it's just list of len 2, we can just access index directly
-        # however we want to get the type validation too
+        # since it's just tuple of len 2, we can just access index directly
+        # however we hve to check type validatn too, incase el is not an int
         # let's add them only if types are valid, else raise TypeError
         try:
             new_tuple = (tup_a[0] + tup_b[0], tup_a[1] + tup_b[1])
