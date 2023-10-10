@@ -65,7 +65,6 @@ int is_palindrome(listint_t **head)
 	listint_t *reversed = NULL;
 	listint_t *copy = NULL;
 	listint_t *temp = NULL; /*to make a pointer of the reversed*/
-	int result = 1; /*ASSUME PALINDROME*/
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
@@ -77,12 +76,12 @@ int is_palindrome(listint_t **head)
 		copy = *head;
 		if (copy->n != temp->n)
 		{
-			result = 0;
-			break;
+			free_reverse(reversed);
+			return (0);
 		}
 		temp = temp->next;
 		*head = copy->next;
 	}
 	free_reverse(reversed);
-	return (result);
+	return (1);
 }
