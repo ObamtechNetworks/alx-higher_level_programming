@@ -16,6 +16,8 @@ listint_t *reverse_list(listint_t *head)
 	/* EDGE CASES, FOR EMPTY LIST OR A SINGLE LIST*/
 	if (head == NULL)
 		return (NULL);
+	if (head->next == NULL)
+		return(head);
 	current = head;
 	/*traverse the list */
 	while (current != NULL)
@@ -61,6 +63,7 @@ void free_reverse(listint_t *head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *reversed = NULL;
+	listint_t *copy = NULL;
 	listint_t *temp = NULL; /*to make a pointer of the reversed*/
 	int result = 1; /*ASSUME PALINDROME*/
 
@@ -71,13 +74,14 @@ int is_palindrome(listint_t **head)
 	while ((*head) != NULL && reversed != NULL)
 	{
 		temp = reversed; /*store reserve somewhere*/
-		if ((*head)->n != temp->n)
+		copy = *head;
+		if (copy->n != temp->n)
 		{
 			result = 0;
 			break;
 		}
 		temp = temp->next;
-		*head = (*head)->next;
+		*head = copy->next;
 	}
 	free_reverse(reversed);
 	return (result);
