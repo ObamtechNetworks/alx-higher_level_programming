@@ -33,6 +33,24 @@ listint_t *reverse_list(listint_t *head)
 	return (prev);
 }
 /**
+ * free_reverse - frees the reversed linked list
+ * @head: pointer to the head of the node
+ * Return: nothing
+ */
+void free_reverse(listint_t *head)
+{
+	listint_t *next = NULL;
+	listint_t *current = head;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+
+	}
+	head = NULL;
+}
+/**
  * is_palindrome - checks if a linked list is a palindrome
  * @head: a pointer to the head of the list
  * Return: 1 if a palindrome and 0 if not
@@ -40,21 +58,22 @@ listint_t *reverse_list(listint_t *head)
 int is_palindrome(listint_t **head)
 {
 	/*start two pointers to point to the head*/
-	listint_t *copy = NULL;
+	listint_t *copy = *head;
 	listint_t *reversed = NULL; /* to hold the reversed value*/
 
 	/*check edge case of empty list or single node*/
-	if ((*head) == NULL || (*head)->next == NULL)
+	if ((*head) == NULL || ((*head)->next == NULL))
 		return (1); /* it is a palindrome*/
-	copy = *head;
 	reversed = reverse_list(copy);
 	/*now iterate through the list to compare the halves*/
 	while (reversed != NULL && *head != NULL)
 	{
 		if ((*head)->n != reversed->n)
 			return (0);
-		*head = (*head)->next;
+		(*head) = (*head)->next;
 		reversed = reversed->next;
 	}
+	copy = NULL;
+	free_reverse(reversed);
 	return (1);
 }
