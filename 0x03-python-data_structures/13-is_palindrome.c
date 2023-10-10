@@ -69,11 +69,11 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 	reversed = reverse_list(*head);
+	temp = reversed; /*store reserve somewhere*/
+	copy = *head;
 	/*iterate throught the list*/
-	while ((*head) != NULL && reversed != NULL)
+	while (copy != NULL && temp != NULL)
 	{
-		temp = reversed; /*store reserve somewhere*/
-		copy = *head;
 		if (copy->n != temp->n)
 		{
 			free_reverse(reversed);
