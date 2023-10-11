@@ -5,12 +5,12 @@ def square_matrix_simple(matrix=[]):
         try:
             return [x ** 2 for x in matrix]
         except (TypeError, ValueError):
-            return None
+            pass
     elif all(isinstance(row, list) for row in matrix):
         try:
             return [[row[x] ** 2 for x in range(len(matrix))]
                     for row in matrix]
         except (TypeError, ValueError):
-            return None
+            pass
     else:
-        return None
+        raise TypeError("Expected a list")
