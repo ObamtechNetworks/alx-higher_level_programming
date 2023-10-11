@@ -13,4 +13,4 @@ def uniq_add(my_list=[]):
         except (ValueError, TypeError) as e:
             print(e)
     else:
-        pass  # do nothing
+        raise TypeError("Expected a list")
