@@ -8,8 +8,7 @@ def square_matrix_simple(matrix=[]):
                     [int(row[x]) ** 2 for x in range(len(matrix))]
                     for row in matrix]
         except (TypeError, ValueError) as e:
-            print(e)
-            return matrix
+            return None
         return new_matrix
     else:
         raise TypeError("Expected argument type: 'list'")
