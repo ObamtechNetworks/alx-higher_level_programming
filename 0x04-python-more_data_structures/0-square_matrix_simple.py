@@ -1,22 +1,31 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    # Egde cases
+    # Egde cases, for empty matrix
+    if not matrix:
+        return []  # return an empty matrix
+
+    # case for 1D array
     if isinstance(matrix[0], int):  # case for 1D array
-        new_matrix = []
+        new_matrix = []  # start an empty list
         for x in matrix:
-            if isinstance(x, int):
-                new_matrix = [x ** 2]
+            if isinstance(x, int):  # check if individual el is an int
+                new_matrix.append([x ** 2])
             else:
-                raise ValueError("invalid element")
-        return new_matrix
+                pass
+                # raise ValueError("invalid element")
+        return new_matrix  # return new array
+    # case for 2D array
     elif all(isinstance(row, list) for row in matrix):
-        new_matrix = [[]]
+        new_matrix_row = []  # init. an empty outer matrix
         for row in matrix:
-            for x in range(len(matrix)):
-                if isinstance(row[x], int):
-                    new_matrix = [[row[x] ** 2]]
+            squared = []
+            for x in row:
+                if isinstance(x, int):
+                    squared.append(x ** 2)
                 else:
-                    raise ValueError("invalid element")
-        return new_matrix
+                    pass
+                    # raise ValueError("invalid element")
+            new_matrix_row.append(squared)
+        return new_matrix_row
     else:
-        return 0  # return 0 for empty list
+        raise ValueError("invalid input")
