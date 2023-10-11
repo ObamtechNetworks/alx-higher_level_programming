@@ -9,6 +9,6 @@ def square_matrix_simple(matrix=[]):
                     for row in matrix]
             return new_matrix
         else:  # if len is negative or 0, return the original matrix
-            return matrix
+            return []
     else:
         raise TypeError("Expected argument type: 'list'")
