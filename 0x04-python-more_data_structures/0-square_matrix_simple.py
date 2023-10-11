@@ -8,7 +8,8 @@ def square_matrix_simple(matrix=[]):
             return None
     elif all(isinstance(row, list) for row in matrix):
         try:
-            [[row[x] ** 2 for x in range(len(matrix))] for row in matrix]
+            return [[row[x] ** 2 for x in range(len(matrix))]
+                    for row in matrix]
         except (TypeError, ValueError):
             return None
     else:
