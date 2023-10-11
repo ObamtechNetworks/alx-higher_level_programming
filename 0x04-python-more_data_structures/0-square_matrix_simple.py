@@ -5,10 +5,11 @@ def square_matrix_simple(matrix=[]):
         new_matrix = []
         try:  # do work only when list is valid and not empty
             new_matrix = [
-                    [row[x] ** 2 for x in range(len(matrix))]
+                    [int(row[x]) ** 2 for x in range(len(matrix))]
                     for row in matrix]
-        except TypeError as e:
-            return
+        except (TypeError, ValueError) as e:
+            print(e)
+            return matrix
         return new_matrix
     else:
         raise TypeError("Expected argument type: 'list'")
