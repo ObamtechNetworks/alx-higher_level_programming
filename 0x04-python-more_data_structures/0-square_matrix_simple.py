@@ -11,4 +11,4 @@ def square_matrix_simple(matrix=[]):
             return None
         return new_matrix
     else:
-        raise TypeError("Expected argument type: 'list'")
+        return None
