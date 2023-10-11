@@ -8,12 +8,12 @@ def uniq_add(my_list=[]):
             sums = 0
             # iterate through the list to sum values
             for x in my_list:
-                if isinstance(x, int):  # select only integers
+                if isinstance(x, int):  # select only int
                     unique.add(x)  # add the element to the set
             # sum all the element of the set
             sums = sum(unique)
             return sums
         except (ValueError, TypeError) as e:
-            raise e("Invalid arguments")
+            raise ValueError("Invalid arguments " + str(e))
     else:
-        raise TypeError("Expected a list")
+        return 0
