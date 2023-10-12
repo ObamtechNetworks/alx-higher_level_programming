@@ -8,4 +8,3 @@ def only_diff_elements(set_1, set_2):
         return (set_1 ^ set_2)  # elem. in a or b but not both
     else:
         raise ValueError("arguments must be a set")
-        return set()  # return an empty set
