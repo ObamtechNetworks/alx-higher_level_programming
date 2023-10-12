@@ -5,6 +5,7 @@ def only_diff_elements(set_1, set_2):
         return set()  # return an empty set
     # if given input is a set
     if isinstance(set_1, set) and isinstance(set_2, set):
-        return set_1 ^ set_2  # elem. in a or b but not both
+        return (set_1 ^ set_2)  # elem. in a or b but not both
     else:
+        raise ValueError("arguments must be a set")
         return set()  # return an empty set
