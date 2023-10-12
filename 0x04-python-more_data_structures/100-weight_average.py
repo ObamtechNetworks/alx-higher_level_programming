@@ -9,7 +9,6 @@ def weight_average(my_list=[]):
     # start weight and score at 0
     score_total = 0
     total_weight = 0
-    
     # loop through score
     for score, weight in my_list:
         if isinstance(score, int) and isinstance(weight, int) and weight > 0:
