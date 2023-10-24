@@ -8,13 +8,14 @@
  */
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t len = PyList_Size(p);
+	Py_ssize_t len = 0;
 	Py_ssize_t i = 0;
 	PyObject *item;
 
 	setbuf(stdout, NULL);
 	if (PyList_Check(p))
 	{
+		len = PyList_Size(p);
 		printf("[*] Python list info\n");
 		printf("[*] Size of the Python List = %ld\n", len);
 		for (i = 0; i < len; i++)
@@ -23,9 +24,10 @@ void print_python_list(PyObject *p)
 			printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
 		}
 	}
-	else
+	else if (len < 0)
 	{
 		printf("  [ERROR] Invalid List Object\n");
+		return;
 	}
 }
 /**
