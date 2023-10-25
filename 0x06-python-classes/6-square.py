@@ -31,8 +31,8 @@ class Square:
             position (:obj: `tuple`): must be a tuple of two positive integers
 
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -44,7 +44,7 @@ class Square:
 
     @size.setter
     def size(self, value):
-        if type(value) is int:
+        if isinstance(value, int):
             self.__size = value
         else:
             raise TypeError("size must be an integer")
@@ -62,12 +62,17 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if ((not type(value) is int) and len(value) != 2) \
-                and any((not type(elem) is int) for elem in value):
+        if not isinstance(value, tuple):
             raise TypeError(
                     "position must be a tuple of 2 positive integers")
-        else:
-            self.__position = value
+        if len(value) != 2:
+            raise TypeError(
+                    "position must be a tuple of 2 positive integers")
+        for i in range(value):
+            if not isinstance(i, int):
+                raise TypeError(
+                    "position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """This method computes the area of a given class instance/object
