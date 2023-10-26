@@ -123,4 +123,4 @@ class Square:
             for i in range(self.__size):
                 sq_str += " " * self.__position[0] \
                         + "#" * self.__size + "\n"
-            return sq_str
+        return sq_str
