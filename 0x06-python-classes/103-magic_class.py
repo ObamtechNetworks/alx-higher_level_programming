@@ -4,6 +4,9 @@
 """
 
 
+import math
+
+
 class MagicClass:
     """This creates a class with attributes of a radius
 
