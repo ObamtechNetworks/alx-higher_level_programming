@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from dis import dis
 """This module defines a class that calculates the radius of a cirle
 
 """
