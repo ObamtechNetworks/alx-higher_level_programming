@@ -11,7 +11,7 @@ class MagicClass:
         __radius (int): must be an integer
 
     """
-    def __init__(self, radius=0):
+    def __init__(self, radius):
         """initializes the class with a private attr(variable) 'raidus'
 
         Args:
