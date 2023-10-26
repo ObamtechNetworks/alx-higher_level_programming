@@ -11,13 +11,13 @@ class MagicClass:
         __radius (int): must be an integer
 
     """
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """initializes the class with a private attr(variable) 'raidus'
 
         Args:
             radius (int): must be an integer
         """
-        self.__radius = 0
+        self.__radius = radius
         if type(radius) is not int and type(radius) is not float:
             raise TypeError("radius must be a number")
         else:
