@@ -88,25 +88,6 @@ class Square:
         """
         return self.__size * self.__size
 
-    def my_print(self):
-        """This method prints in stdout the square with the char '#'
-
-        If size is == 0, an empty line is printed
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        if self.__size == 0:
-            print()
-        else:
-            for i in range(self.__position[1]):
-                print()
-            for i in range(self.__size):
-                print(" " * self.__position[0] + '#' * self.__size)
-
     def __str__(self):
         """This helps to return a nice formatted string
 
@@ -120,7 +101,22 @@ class Square:
         else:
             for i in range(self.__position[1]):
                 sq_str += "\n"
+
             for i in range(self.__size):
                 sq_str += " " * self.__position[0] \
                         + "#" * self.__size + "\n"
+            sq_str = sq_str[:-1]
         return sq_str
+
+    def my_print(self):
+        """This method prints in stdout the square with the char '#'
+
+        If size is == 0, an empty line is printed
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        print(str(self), end="")
