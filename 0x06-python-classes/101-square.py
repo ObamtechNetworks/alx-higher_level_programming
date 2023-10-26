@@ -119,4 +119,4 @@ class Square:
         Returns:
             None
         """
-        print(str(self), end="")
+        print(str(self))
