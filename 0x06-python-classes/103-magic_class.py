@@ -31,7 +31,7 @@ class MagicClass:
             returns the result for area of a circle
 
         """
-        return self.__radius ** 2 * math.pi
+        return (self.__radius ** 2) * math.pi
 
     def circumference(self):
         """This method calculates the value circumference of a circle
@@ -43,4 +43,4 @@ class MagicClass:
             returns the value of the circumference
 
         """
-        return 2 * math.pi * self.__radius
+        return (2 * math.pi) * self.__radius
