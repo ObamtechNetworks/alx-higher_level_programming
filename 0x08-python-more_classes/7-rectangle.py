@@ -72,12 +72,9 @@ class Rectangle:
             return str_s
 
         symbol = self.print_symbol
-        if isinstance(symbol, list):
-            symbol = str(symbol)
-
         for _ in range(self.__height):
             for _ in range(self.__width):
-                str_s += symbol
+                str_s += str(symbol)
             str_s += '\n'
         # remove last newline
         str_s = str_s[:-1]
