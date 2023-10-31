@@ -63,7 +63,7 @@ class Rectangle:
         """
         str_s = ""
         for i in range(self.__height):
-            for i in range(self.__width):
+            for j in range(self.__width):
                 str_s += '#'
             str_s += '\n'
         # remove last newline
