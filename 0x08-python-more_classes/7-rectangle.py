@@ -14,8 +14,8 @@ class Rectangle:
         width (int): must be an integer
         height (int): must be an integer
     """
-    number_of_instances = 0
     print_symbol = '#'
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         self.width = width
@@ -70,10 +70,14 @@ class Rectangle:
         str_s = ""
         if self.__width == 0 or self.__height == 0:
             return str_s
+        
+        symbol = self.print_symbol
+        if isinstance(symbol, list):
+            symbol = str(symbol)
 
         for _ in range(self.__height):
             for _ in range(self.__width):
-                str_s += str(type(self).print_symbol)
+                str_s += symbol
             str_s += '\n'
         # remove last newline
         str_s = str_s[:-1]
