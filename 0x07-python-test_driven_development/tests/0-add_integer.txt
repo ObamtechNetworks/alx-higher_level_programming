@@ -1,0 +1,184 @@
+The ``add_integer`` function is found in the ``0-add_integer`` module
+======================================================================
+
+The examples below demonstrates the use of the ``add_integer`` function
+-----------------------------------------------------------------------
+
+The ``add_integer`` function adds two integers
+It receives two integers as arguments
+It returns the addition of the two integers
+
+First import
+``add_integer`` from the ``0-add_integer`` module:
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(10, 3)
+    13
+
+---------------------------------------
+Check for presence of module's docstring
+----------------------------------------
+
+::
+
+    >>> module_doc = __import__("0-add_integer").__doc__
+    >>> len(module_doc) > 1
+    True
+
+---------------------------------------
+Check for presence of function's docstring
+----------------------------------------
+
+::
+
+    >>> func_doc = __import__("0-add_integer").add_integer.__doc__
+    >>> len(func_doc) > 1
+    True
+
+-------------------------------------------------
+Case: Only one argument, second arg is default 98
+-------------------------------------------------
+
+::
+
+    >>> add_integer(2)
+    100
+
+Exceptions: a and b must be integers, if floats, they are casted to int
+
+::
+
+    >>> add_integer(2.2, 3.4)
+    5
+
+---------------
+Trying negatives
+----------------
+
+::
+
+    >>> add_integer(100, -2)
+    98
+    >>> add_integer(-3, -3.5)
+    -6
+
+------------------------------
+Exceptions: strings
+------------------------------
+
+::
+
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+    >>> add_integer("jsh", 55)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+----------------------------------
+Exceptions: Both are strings
+----------------------------------
+
+::
+
+   >>> add_integer("string1", "5555")
+   Traceback (most recent call last):
+      ...
+   TypeError: a must be an integer
+
+----------------------------
+Non Valid arguments (chars)
+---------------------------
+
+::
+
+    >>> add_integer('2', 8)
+    Traceback (most recent call last):
+      ...
+    TypeError: a must be an integer
+    >>> add_integer(2, '5')
+    Traceback (most recent call last):
+      ...
+    TypeError: b must be an integer
+
+----------------------------------
+Large numbers positive:
+----------------------------------
+
+::
+
+    >>> add_integer(10**10, 10**10)
+    20000000000
+
+----------------------------------
+Large numbers negatives:
+----------------------------------
+
+::
+
+    >>> add_integer(-100000, -100000)
+    -200000
+
+----------------------------------
+Zeros as arguments:
+----------------------------------
+
+::
+
+    >>> add_integer(0, 0)
+    0
+    >>> add_integer(0, 10)
+    10
+    >>> add_integer(0)  # defaults to 98
+    98
+
+----------------------------------
+Very large Infinity floats:
+----------------------------------
+
+::
+   
+    >>> add_integer(-100000, float('-inf'))
+    Traceback (most recent call last):
+       ...
+    OverflowError: cannot convert float infinity to integer
+
+----------------------------------
+Passing objects as arguments
+----------------------------------
+
+::
+
+    >>> class Score: pass
+    >>> add_integer(Score, 2)
+    Traceback (most recent call last):
+       ...
+    TypeError: a must be an integer
+    >>> lists = [1, 2, 4, 5, 10]
+    >>> add_integer(3, lists)
+    Traceback (most recent call last):
+       ...
+    TypeError: b must be an integer
+    >>> add_integer(Score, lists)
+    Traceback (most recent call last):
+       ...
+    TypeError: a must be an integer
+    >>> add_integer(5, [])
+    Traceback (most recent call last):
+       ...
+    TypeError: b must be an integer
+
+------------------------------------
+Passing NaN as arguments
+___________________________________
+
+::
+
+    >>> add_integer(10.2, float('nan'))
+    Traceback (most recent call last):
+       ...
+    ValueError: cannot convert float NaN to integer

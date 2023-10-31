@@ -1,0 +1,126 @@
+The ``say_my_name`` function is found in the ``3-say_my_name`` module
+======================================================================
+
+The examples below demonstrates the use of the ``say_my_name`` function
+-----------------------------------------------------------------------
+
+The ``say_my_name`` function prints a given name
+E.g: ``My name is John Smith``
+It receives two arguments <first_name>, <last_name>
+<first_name> and <last_name> must be strings, else an exception is raised
+Returns: nothing, it prints:
+My name is <first_name> <last_name>
+
+First import
+``say_my_name`` from the ``3-say_my_name`` module:
+
+::
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+---------------------------------------
+Check for presence of module's docstring
+----------------------------------------
+
+::
+
+    >>> module_doc = __import__("3-say_my_name").__doc__
+    >>> len(module_doc) > 1
+    True
+
+---------------------------------------
+Check for presence of function's docstring
+----------------------------------------
+
+::
+
+    >>> func_doc = __import__("3-say_my_name").say_my_name.__doc__
+    >>> len(func_doc) > 1
+    True
+
+=============------------------------============
+EXCEPTION TESTS
+=============------------------------============
+CASE 1: <first_name>, <last_name> not a string
+--------------------------------
+
+::
+
+    >>> say_my_name(4, "Jones")
+    Traceback (most recent call last):
+       ...
+    TypeError: first_name must be a string
+
+    --> Tests args: objects: lists, tuples classes
+    >>> say_my_name([], "Jack")
+    Traceback (most recent call last):
+       ...
+    TypeError: first_name must be a string
+    >>> say_my_name("Jill", (1, 2, 3))
+    Traceback (most recent call last):
+       ...
+    TypeError: last_name must be a string
+    >>> class Name: pass
+    >>> say_my_name("Bob", Name)
+    Traceback (most recent call last):
+       ...
+    TypeError: last_name must be a string
+
+---------------------------------------------------
+CASE 2: <first_name> empty string, <last_name> valid
+---------------------------------------------------
+
+::
+
+    >>> say_my_name("", "Jared")
+    My name is  Jared
+
+    ---> arg2 empty, arg1 valid
+    >>> say_my_name("Blaine", "")
+    My name is Blaine 
+
+-----------------------------------------
+CASE 3: <first_name>, <last_name> two empty strings
+-----------------------------------------
+
+::
+
+    >>> say_my_name("", "")
+    Traceback (most recent call last):
+       ...
+    ValueError: first_name and last_name cannot be empty
+
+-------------------------------------------
+CASE 4: <first_name> empty, <last_name> not a string
+-------------------------------------------
+
+::
+
+    >>> say_my_name("", 4)
+    Traceback (most recent call last):
+       ...
+    TypeError: last_name must be a string
+
+-----============================----
+CORRECT OUTPUT TESTS
+--------------------------------
+
+::
+
+    ---> <first_name> and <last_name> present
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+    ---> Only One Argument (rememb: trailing whitespace)
+    >>> say_my_name("Carlos")
+    My name is Carlos 
+
+    ---> More tests
+    >>> say_my_name("Bamidele", "Michael")
+    My name is Bamidele Michael
+
+    ---> Non resaonable strings as names
+    >>> say_my_name("1234", "5678")
+    My name is 1234 5678
