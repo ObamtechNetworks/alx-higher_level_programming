@@ -70,7 +70,7 @@ class Rectangle:
         str_s = ""
         if self.__width == 0 or self.__height == 0:
             return str_s
-        
+
         symbol = self.print_symbol
         if isinstance(symbol, list):
             symbol = str(symbol)
