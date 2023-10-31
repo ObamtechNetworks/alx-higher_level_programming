@@ -62,8 +62,11 @@ class Rectangle:
         This defines a nice string represenation of the class instances
         """
         str_s = ""
-        for i in range(self.__height):
-            for j in range(self.__width):
+        if self.__width == 0 or self.__height == 0:
+            return str_s
+
+        for _ in range(self.__height):
+            for _ in range(self.__width):
                 str_s += '#'
             str_s += '\n'
         # remove last newline
