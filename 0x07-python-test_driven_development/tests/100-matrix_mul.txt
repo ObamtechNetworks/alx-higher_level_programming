@@ -1,0 +1,105 @@
+The ``matrix_mul`` func is found in the ``100-matrix_mul`` module
+======================================================================
+
+The examples below demonstrates the use of the ``matrix_mul`` function
+-----------------------------------------------------------------------
+
+The ``matrix_mul`` multiplies two matrices
+A matrix is a list of lists
+
+Args:
+
+Receives a matrix as first arg, and another matrix as second arg
+
+Return: It returns a result of multiplication
+
+First import the function from the module
+``matrix_mul`` from the ``100-matrix_mul`` module:
+
+::
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+    ---- A sample Usage ----
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    [[7, 10], [15, 22]]
+    >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    [[13, 16]]
+
+---------------------------------------
+Check for presence of module's docstring
+----------------------------------------
+
+::
+
+    >>> module_doc = __import__("100-matrix_mul").__doc__
+    >>> len(module_doc) > 1
+    True
+
+---------------------------------------
+Check for presence of function's docstring
+----------------------------------------
+
+::
+
+    >>> func_doc = __import__("100-matrix_mul").matrix_mul.__doc__
+    >>> len(func_doc) > 1
+    True
+
+=============------------------------============
+EXCEPTION TEST ON MATRIX
+=============------------------------============
+CASE 1: <ARG-1> is not a matrix
+-------------------------------
+::
+
+    >>> matrix_mul([[1, 2], [3, 'a']], [[1], [3]])
+    Traceback (most recent call last):
+       ...
+    TypeError: m_a should contain only integers or floats
+
+    >>> matrix_mul([[1, 2], [3]], [[1], [3]])
+    Traceback (most recent call last):
+       ...
+    TypeError: each row of m_a must be of the same size
+
+    >>> matrix_mul([], [[1], [3]])
+    Traceback (most recent call last):
+       ...
+    ValueError: m_a can't be empty
+
+-------------------------------------
+CORRECT OUPUT TESTS:
+-------------------------------------
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]])
+    [[19, 22], [43, 50]]
+    
+    >>> matrix_mul([[1.5, 2.5], [3.5, 4.5]], [[5.5, 6.5], [7.5, 8.5]])
+    [[27.0, 31.0], [53.0, 61.0]]
+
+    >>> matrix_mul([[1, 2], [3, 'a']], [[1], [3]])
+    Traceback (most recent call last):
+       ...
+    TypeError: m_a should contain only integers or floats
+    
+    >>> matrix_mul([[1, 2], [3]], [[1], [3]])
+    Traceback (most recent call last):
+       ...
+    TypeError: each row of m_a must be of the same size
+
+    >>> matrix_mul([], [[1], [3]])
+    Traceback (most recent call last):
+       ...
+    ValueError: m_a can't be empty
+
+    >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+    [[13, 16]]
+
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+    [[58, 64], [139, 154]]
+
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10]])
+    Traceback (most recent call last):
+       ...
+    ValueError: m_a and m_b can't be multiplied
