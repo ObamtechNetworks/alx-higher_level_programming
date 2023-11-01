@@ -116,6 +116,16 @@ CASE 3: size is an integer but negatives: [ < 0 ]
        ...
     ValueError: size must be >= 0
 
+-------------------------------
+EMPTY ARGUMENT/PARAMETER TEST
+-------------------------------
+::
+
+    >>> print_square()
+    Traceback (most recent call last):
+       ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
 -----------------------------------------------
 CORRECT OUTPUT TESTS
 -----------------------------------------------
