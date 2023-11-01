@@ -8,20 +8,4 @@ class LockedClass:
     """Locks a class and prents modifications
     unless instance attribute is first_name
     """
-    def __setattr__(self, name, value):
-        """intercepts the behaviour of the __setattr__ method
-        it only get's to function properly if the name given
-        is in the list of the allowed attributes as defined
-        in the Public class attribute (variable)
-        """
-
-        if name == 'first_name':
-            super().__init__()
-            super().__setattr__(name, value)
-        else:
-            raise AttributeError("'LockedClass' object has "
-                                 "no attribute '{}'".format(name))
-
-    def __init__(self):
-        """initializes attributes"""
-        pass
+    __slots__ = 'first_name'
