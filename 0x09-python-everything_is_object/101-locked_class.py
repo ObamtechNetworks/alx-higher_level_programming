@@ -16,7 +16,12 @@ class LockedClass:
         """
 
         if name == 'first_name':
-            self.__dict__[name] = value
+            super().__init__()
+            super().__setattr__(name, value)
         else:
             raise AttributeError("'LockedClass' object has "
                                  "no attribute '{}'".format(name))
+
+    def __init__(self):
+        """initializes attributes"""
+        pass
