@@ -174,3 +174,28 @@ CORRECT OUTPUT TESTS
     <BLANKLINE>
     This should be enough for testing purposes.
     <BLANKLINE>
+
+    >>> text_indentation("Holberton.School")
+    Holberton.
+    <BLANKLINE>
+    School
+
+    >> text_indentation(".?Holberton.School.")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    Holberton.
+    <BLANKLINE>
+    School.
+    <BLANKLINE>
+
+----------------------------------
+EDGE CASE FOR EMPTY INPUT / ARGUMENTS
+------------------------------------
+::
+
+   >>> text_indentation()
+   Traceback (most recent call last):
+      ...
+   TypeError: text_indentation() missing 1 required positional argument: 'text'
