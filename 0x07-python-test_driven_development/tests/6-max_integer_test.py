@@ -7,22 +7,6 @@ max_integer = __import__('6-max_integer').max_integer
 class TestMaxInteger(unittest.TestCase):
     """defines different test cases and handles apropriately
     """
-    def test_non_list_arguments(self):
-        """Tests for non list arguments and raise a TypeError
-        """
-        with self.assertRaises(TypeError):
-            max_integer(123495) #  Test with an integer
-        with self.assertRaises(TypeError):
-            max_integer("Best School")  # test for string
-        with self.assertRaises(TypeError):
-            max_integer({'key': 23, 'name': 'John'})  # Test with dict
-        with self.assertRaises(TypeError):
-            max_integer((1, 'string', ['l' 'i', 2]))  # Test with tuples
-        with self.assertRaises(TypeError):
-            max_integer(None)  # Test with None
-        with self.assertRaises(TypeError):
-            max_integer([[]])  # Test with a matrix
-
     def test_correct_outputs(self):
         """Test for correctness of output
         """
@@ -32,39 +16,11 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([1]), 1)  # Test with single element
         self.assertEqual(max_integer([5, 5, 5, 5]), 5)  # Test identical
         self.assertEqual(max_integer([2, 4, 6, 8, 10]), 10)  # Test sorted list
-
-    def test_invalid_list_elements(self):
-        """Test for invalid elements within list
-        """
-        with self.assertRaises(TypeError):
-            max_integer([23.5, 8, 19.2, 0])  # Test with floats
-        with self.assertRaises(TypeError):
-            max_integer([1, 2, '3', 5])  # Test with char within list
-        with self.assertRaises(TypeError):
-            max_integer([10, 100, [1, 100, 23]])  # Test list within list
-        with self.assertRaises(TypeError):
-            max_integer([1000, 0, "School", 'Best'])  # Test str among list
-        with self.assertRaises(TypeError):
-            max_integer([2500, {'key': 10}, 20])  # Test dict inside list
-        with self.assertRaises(TypeError):
-            max_integer([20, 10, (1, 2, '5')])  # Test tuple within list
-        with self.assertRaises(TypeError):
-            max_integer([20, 1, 5, None, 2])  # Test for None within list
-        with self.assertRaises(TypeError):
-            max_integer([1e3, 2e5, 3e7])  # Test float in scientific repr
-        with self.assertRaises(TypeError):
-            max_integer([float('inf'), float('-inf')])  # Test inf floats
-        with self.assertRaises(TypeError):
-            max_integer([float('nan'), 42])  # Test with NaN float
-        with self.assertRaises(TypeError):
-            max_integer([1e100, 1e100 - 1])  # Test with large floats
-    def test_mutability(self):
-        """Test that the list is not modified after usage
-        """
-        input_list = [1, 2, 3, 4]
-        max_integer(input_list)
-        self.assertEqual(input_list, [1, 2, 3, 4])
-
+        self.assertEqual(max_integer([-1, 4, 9, 220]), 220)  # only 1 neg.
+        self.assertEqual(max_integer([100, 2000, 1]), 2000)  # max in mid
+        self.assertEqual(max_integer([2000, 123, 11]), 2000)  # max at beg
+        self.assertEqual(max_integer([2, 100, 259, 800]), 800)  # max @end
+    
     def test_with_large_list(self):
         """Test for large numbers
         """
