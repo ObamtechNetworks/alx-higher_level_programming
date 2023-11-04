@@ -141,12 +141,12 @@ CORRECT OUPUT TESTS:
 
 CASE MISSING ARGUMENTS:
 
-    >> matrix_mul([[1, 2]])
+    >> print(matrix_mul([[1, 2]])) # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
        ...
     TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
 
-    >> matrix_mul()
+    >> print(matrix_mul()) # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
        ...
     TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
