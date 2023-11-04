@@ -8,11 +8,11 @@ def matrix_mul(m_a, m_b):
     """
     # m_a not a list
     if not isinstance(m_a, list):
-        raise TypeError("ma_a must be a list")
+        raise TypeError("m_a must be a list")
 
     # m_b not a list
     if not isinstance(m_b, list):
-        raise TypeError("ma_b must be a list")
+        raise TypeError("m_b must be a list")
 
     # check if m_a is not a matrix
     for row in m_a:
