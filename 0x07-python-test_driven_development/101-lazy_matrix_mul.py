@@ -5,7 +5,8 @@ it uses the numpy module
 """
 
 
-import numpy
+import numpy as np
+
 
 def lazy_matrix_mul(m_a, m_b):
     """a function that multiplies two matrices
@@ -57,8 +58,8 @@ def lazy_matrix_mul(m_a, m_b):
     m_b_row_len = len(m_b[0])  # get the len of first row
     for row in m_b:
         if len(row) != m_b_row_len:  # check each rows against sample row
-            raise TypeError("each row of m_b must be of the same size")   
+            raise TypeError("each row of m_b must be of the same size")
 
-        result_dot = np.dot(m_a, m_b)
+        result = np.dot(m_a, m_b)
 
         return result
