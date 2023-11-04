@@ -63,6 +63,11 @@ CASE 1: <ARG-1> is not a matrix
        ...
     TypeError: each row of m_a must be of the same size
 
+    >>> matrix_mul([[1, 2], [3, 2]], [[1, 2], [3]])
+    Traceback (most recent call last):
+       ...
+    TypeError: each row of m_b must be of the same size
+
     >>> matrix_mul([], [[1], [3]])
     Traceback (most recent call last):
        ...
@@ -82,11 +87,41 @@ CORRECT OUPUT TESTS:
     Traceback (most recent call last):
        ...
     TypeError: m_a should contain only integers or floats
+
+    >>> matrix_mul([[1, 2], [3, 2]], [[1, 3], [3, 's']])
+    Traceback (most recent call last):
+       ...
+    TypeError: m_b should contain only integers or floats
+
+    >>> matrix_mul("m_a string", [[1], [3]])
+    Traceback (most recent call last):
+       ...
+    TypeError: m_a must be a list
+
+    >>> matrix_mul([[1, 2], [3, 2]], "m_b string")
+    Traceback (most recent call last):
+       ...
+    TypeError: m_b must be a list
+
+    >>> matrix_mul([1, 23, 38], [[1, 3], [3, 2], [22, 3]])
+    Traceback (most recent call last):
+       ...
+    TypeError: m_a must be a list of lists
     
+    >>> matrix_mul([[1, 3], [3, 2], [22, 3]], [2, 4, 6])
+    Traceback (most recent call last):
+       ...
+    TypeError: m_b must be a list of lists
+
     >>> matrix_mul([[1, 2], [3]], [[1], [3]])
     Traceback (most recent call last):
        ...
     TypeError: each row of m_a must be of the same size
+
+    >>> matrix_mul([[1, 3], [3, 2], [22, 3]], [])
+    Traceback (most recent call last):
+       ...
+    ValueError: m_b can't be empty
 
     >>> matrix_mul([], [[1], [3]])
     Traceback (most recent call last):
@@ -103,3 +138,16 @@ CORRECT OUPUT TESTS:
     Traceback (most recent call last):
        ...
     ValueError: m_a and m_b can't be multiplied
+
+CASE MISSING ARGUMENTS:
+
+    >> matrix_mul([[1, 2]])
+    Traceback (most recent call last):
+       ...
+    TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+    >> matrix_mul()
+    Traceback (most recent call last):
+       ...
+    TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
