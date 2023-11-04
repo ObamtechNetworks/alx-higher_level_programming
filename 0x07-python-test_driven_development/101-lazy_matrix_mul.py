@@ -9,6 +9,7 @@ import numpy as np
 
 
 def lazy_matrix_mul(m_a, m_b):
+
     """a function that multiplies two matrices
     """
     # m_a not a list
@@ -60,6 +61,5 @@ def lazy_matrix_mul(m_a, m_b):
         if len(row) != m_b_row_len:  # check each rows against sample row
             raise TypeError("each row of m_b must be of the same size")
 
-        result = np.dot(m_a, m_b)
-
-        return result
+    result = np.dot(m_a, m_b)
+    return result

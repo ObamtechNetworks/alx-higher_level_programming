@@ -1,4 +1,4 @@
-The ``lazy_lazy_matrix_mul`` func is found in the ``101-lazy_matrix_mul`` module
+The ``lazy_matrix_mul`` func is found in the ``101-lazy_matrix_mul`` module
 ======================================================================
 
 The examples below demonstrates the use of the ``lazy_matrix_mul`` function
@@ -14,12 +14,13 @@ Receives a matrix as first arg, and another matrix as second arg
 Return: It returns a result of multiplication
 
 First import the function from the module
-``lazy_matrix_mul`` from the ``100-lazy_matrix_mul`` module:
+``lazy_matrix_mul`` from the ``101-lazy_matrix_mul`` module:
 
 ::
 
-    >>> lazy_matrix_mul = __import__('100-matrix_mul').matrix_mul
+    >>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
 
+    
     ---- A sample Usage ----
     >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
     [[7, 10], [15, 22]]
@@ -32,7 +33,7 @@ Check for presence of module's docstring
 
 ::
 
-    >>> module_doc = __import__("100-lazy_matrix_mul").__doc__
+    >>> module_doc = __import__("101-lazy_matrix_mul").__doc__
     >>> len(module_doc) > 1
     True
 
@@ -42,7 +43,7 @@ Check for presence of function's docstring
 
 ::
 
-    >>> func_doc = __import__("100-lazy_matrix_mul").lazy_matrix_mul.__doc__
+    >>> func_doc = __import__("101-lazy_matrix_mul").lazy_matrix_mul.__doc__
     >>> len(func_doc) > 1
     True
 
