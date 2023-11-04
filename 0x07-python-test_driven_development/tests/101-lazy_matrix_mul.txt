@@ -14,11 +14,9 @@ Receives a matrix as first arg, and another matrix as second arg
 Return: It returns a result of multiplication
 
 First import the function from the module
-``lazy_matrix_mul`` from the ``101-lazy_matrix_mul`` module:
-
 ::
 
-    >>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+   >>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
 
     
     ---- A sample Usage ----
