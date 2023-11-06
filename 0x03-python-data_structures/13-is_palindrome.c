@@ -55,13 +55,15 @@ void free_reverse(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *copy = NULL
+	listint_t *copy = NULL;
 	listint_t *temp = NULL;
 
 	if (!head || *head == NULL || (*head)->next == NULL)
 		return (1);
+
 	copy = *head;
 	temp = *head;
+
 	reverse_list(temp);
 	/*iterate throught the list*/
 	while (temp && copy)
