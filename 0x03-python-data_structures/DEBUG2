@@ -5,7 +5,7 @@
  * @head: pointer to the head of the list
  * Return: the head of the reversed list
  */
-void reverse_list(listint_t *head)
+listint_t *reverse_list(listint_t *head)
 {
 	/* set pointer to the head of the list as current*/
 	listint_t *current = head;
@@ -13,6 +13,17 @@ void reverse_list(listint_t *head)
 	listint_t *prev = NULL;
 	/*set a next pointer to NULL, needed as next of current.next*/
 	listint_t *next = NULL;
+	int count = 0;
+	/* EDGE CASES, FOR EMPTY LIST OR A SINGLE LIST*/
+	if (head == NULL)
+		return (NULL);
+	/*count the no. of nodes*/
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
+	current = head;
 	/*traverse the list */
 	while (current != NULL)
 	{
@@ -25,8 +36,11 @@ void reverse_list(listint_t *head)
 		/* move to the next node to repeat reversal*/
 		current = next;
 	}
+	/*check for even*/
+	if (count % 2 != 0)
+		prev = prev->next;/*skip the middle value*/
 	/* return prev node*/
-	head = prev;
+	return (prev);
 }
 /**
  * free_reverse - frees the reversed linked list
@@ -55,24 +69,26 @@ void free_reverse(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *copy = NULL
-	listint_t *temp = NULL;
+	listint_t *reversed = NULL;
+	listint_t *copy = NULL;
+	listint_t *temp = NULL; /*to make a pointer of the reversed*/
 
-	if (!head || *head == NULL || (*head)->next == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	copy = *head;
-	temp = *head;
-	reverse_list(temp);
+	reversed = reverse_list(*head);
 	/*iterate throught the list*/
-	while (temp && copy)
+	while ((*head) != NULL && reversed != NULL)
 	{
-		if (copy->n == temp->n)
+		temp = reversed; /*store reserve somewhere*/
+		copy = *head;
+		if ((*head)->n != reversed->n)
 		{
-			copy = copy->next;
-			temp = temp->next;
-		}
-		else
+			free_reverse(reversed);
 			return (0);
+		}
+		*head = copy->next;
+		reversed = temp->next;
 	}
+	free_reverse(temp);
 	return (1);
 }
