@@ -1,0 +1,73 @@
+The examples below tests the use of the ``MyList` class and its method
+-------------------------------------------------------------------
+
+The ``MyList`` class inherits from the native ``list`` class in python
+It has a public instance method: ``print_sorted``
+This method prints the generated list from MyList in ascending sort
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+---------------------------------------
+Check for presence of module's docstring
+----------------------------------------
+
+::
+
+    >>> module_doc = __import__("1-my_list").__doc__
+    >>> len(module_doc) > 1
+    True
+
+---------------------------------------
+Check for presence of class' docstring
+----------------------------------------
+
+::
+
+    >>> class_doc = __import__("1-my_list").MyList.__doc__
+    >>> len(class_doc) > 1
+    True
+
+-------------------------------------------------
+Case: Test other output
+-------------------------------------------------
+
+::
+
+    >>> new_list = MyList()
+    >>> new_list.append(10)
+    >>> new_list.append(100)
+    >>> new_list.append(30)
+    >>> new_list.append(2)
+    >>> print(new_list)
+    [10, 100, 30, 2]
+    >>> new_list.print_sorted()
+    [2, 10, 30, 100]
+    >>> print(new_list)
+    [10, 100, 30, 2]
+
+------------------------------------
+Exception cases
+------------------------------------
+    >>> test = MyList()
+    >>> test.append('S')
+    >>> test.append(2)
+    >>> test.append((2,))
+    >>> print(test)
+    ['S', 2, (2,)]
+    >>> test.print_sorted()
+    Traceback (most recent call last):
+       ...
+    TypeError: unorderable types: int() < str()
