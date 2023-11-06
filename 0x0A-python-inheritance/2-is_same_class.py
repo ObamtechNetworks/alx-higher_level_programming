@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """This module defines a function that checks if an obj is an instance
--- of a specified class
+-- of a specified class, returns the exact type of obj.
+to use the type() func:
+    Behavior: It returns the specific class type of the object,
+    without considering subclasses.
 """
 
 
