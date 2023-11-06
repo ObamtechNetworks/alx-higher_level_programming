@@ -76,5 +76,8 @@ int is_palindrome(listint_t **head)
 		copy = copy->next;
 		temp = temp->next;
 	}
+	if (temp != NULL || copy != NULL) /*If either list has some el rema*/
+		return (0);
+
 	return (1);
 }
