@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-BaseGeometry = __import__('5-base_geometry').BaseGeometry
+"""This module defines an empty class: "BaseGeometry
+This would serve as the base class for next coming classes
+"""
 
-bg = BaseGeometry()
 
-print(bg)
-print(dir(bg))
-print(dir(BaseGeometry))
+class BaseGeometry:
+    """The base class for geometry objects
+    """
+    pass
