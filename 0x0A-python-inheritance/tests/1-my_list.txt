@@ -58,6 +58,51 @@ Case: Test other output
     >>> print(new_list)
     [10, 100, 30, 2]
 
+------------------------------------------
+Testing the class directly with list input
+------------------------------------------
+
+    >>> my_list = MyList([3, 1, 4, 2, 5])
+    >>> my_list.append(6)
+    >>> print(my_list)
+    [3, 1, 4, 2, 5, 6]
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5, 6]
+
+---> Test with NUMBERS
+    
+    >>> number_list = MyList([3, 1, 4, 2, 5])
+    >>> print(number_list)
+    [3, 1, 4, 2, 5]
+    >>> number_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+
+---> Test with floats
+::
+
+    >>> float_list = MyList([3.14, 1.1, 2.2, 4.4])
+    >>> print(float_list)
+    [3.14, 1.1, 2.2, 4.4]
+    >>> float_list.print_sorted()
+    [1.1, 2.2, 3.14, 4.4]
+
+---> Test with strings
+
+    >>> string_list = MyList(['apple', 'orange', 'banana'])
+    >>> print(string_list)
+    ['apple', 'orange', 'banana']
+    >>> string_list.print_sorted()
+    ['apple', 'banana', 'orange']
+
+---> Test with other class
+    >>> class Person: __init__ = lambda self, name, age: setattr(self, 'name', name) or setattr(self, 'age', age)
+    >>> person_list = MyList([Person('Alice', 30), Person('Bob', 25), Person('Charlie', 35)])
+    >>> person_list.print_sorted()
+    Traceback (most recent call last):
+       ...
+    TypeError: unorderable types: Person() < Person()
+
 ------------------------------------
 Exception cases
 ------------------------------------
