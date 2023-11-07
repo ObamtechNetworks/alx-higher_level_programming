@@ -5,13 +5,11 @@ added area instance method
 added int validato
 added a subclass rectange
 """
-
-
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
-Rectangle = __import__('8-rectangle').Rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
 
-class Square(Rectangle, BaseGeometry):
+class Square(Rectangle):
     """a subclass of Rectangle which is a subclass of BaseGeometry"""
     def __init__(self, size):
         """initialzie square"""
