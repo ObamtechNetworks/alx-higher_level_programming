@@ -6,6 +6,7 @@ added area instance method
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """This class inherits from the BaseGeometry class
     """
