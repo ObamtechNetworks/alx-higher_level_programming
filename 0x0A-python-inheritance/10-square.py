@@ -45,9 +45,5 @@ class Square(Rectangle):
     """a subclass of Rectangle which is a subclass of BaseGeometry"""
     def __init__(self, size):
         """initialzie square"""
-        self.integer_validator("size", size)
-        self.__size = size
-    
-    def area(self):
-        """calculates area"""
-        return self.__size * self.__size
+        super().integer_validator("size", size)
+        super().__init__(size, size)
