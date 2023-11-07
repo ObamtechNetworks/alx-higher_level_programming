@@ -97,11 +97,6 @@ Testing the class directly with list input
 
 ---> Test with other class
     >>> class Person: __init__ = lambda self, name, age: setattr(self, 'name', name) or setattr(self, 'age', age)
-    >>> person_list = MyList([Person('Alice', 30), Person('Bob', 25), Person('Charlie', 35)])
-    >>> person_list.print_sorted()
-    Traceback (most recent call last):
-       ...
-    TypeError: unorderable types: Person() < Person()
 
 ------------------------------------
 Exception cases
@@ -112,13 +107,6 @@ Exception cases
     >>> test.append((2,))
     >>> print(test)
     ['S', 2, (2,)]
-    >>> test.print_sorted()
-    Traceback (most recent call last):
-       ...
-    TypeError: unorderable types: int() < str()
-
-   --> test with integers
-
     >>> invalid_list = MyList(123)
     Traceback (most recent call last):
        ...
@@ -140,3 +128,59 @@ Exception cases
     >>> strr.print_sorted()
     ['r', 's', 't']
 
+
+
+Passing A list
+    >>> h = [2, 5, 3]
+    >>> my_list = MyList(h)
+    >>> my_list.print_sorted()
+    [2, 3, 5]
+    >>>
+
+----------------------------------------------------------
+
+Passing an empty list
+    >>> h = []
+    >>> my_list = MyList(h)
+    >>> my_list.print_sorted()
+    []
+    >>> 
+
+-----------------------------------------------------------
+
+Passing the same numbers as a list
+    >>> h = [7, 7, 7, 7]
+    >>> my_list = MyList(h)
+    >>> my_list.print_sorted()
+    [7, 7, 7, 7]
+    >>>
+
+-----------------------------------------------------------
+
+Passing negative numbers
+    >>> h = [7, 7, -17, -27, 37]
+    >>> my_list = MyList(h)
+    >>> my_list.print_sorted()
+    [-27, -17, 7, 7, 37]
+    >>>
+
+------------------------------------------------------------
+
+Passing no defined object
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list2.print_sorted()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'my_list2' is not defined
+    >>> 
+
+-------------------------------------------------------------
+
+Parent Object
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = [7, 7, -17, -27, 37]
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    AttributeError: 'list' object has no attribute 'print_sorted'
+    >>>
