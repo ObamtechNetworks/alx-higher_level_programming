@@ -16,5 +16,6 @@ test.append('S')
 test.append(2)
 test.append((2,))
 print(test)
-test.print_sorted()
-print(test)
+
+inv = MyList(2.3, 4.4)
+print(inv)

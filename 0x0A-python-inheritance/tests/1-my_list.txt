@@ -95,9 +95,6 @@ Testing the class directly with list input
     >>> string_list.print_sorted()
     ['apple', 'banana', 'orange']
 
----> Test with other class
-    >>> class Person: __init__ = lambda self, name, age: setattr(self, 'name', name) or setattr(self, 'age', age)
-
 ------------------------------------
 Exception cases
 ------------------------------------
@@ -115,7 +112,7 @@ Exception cases
     >>> inv = MyList(2.3, 4.4)
     Traceback (most recent call last):
        ...
-    TypeError: list() takes at most 1 argument (2 given)
+    TypeError: list expected at most 1 argument, got 2
 
     >>> inva = MyList(2.4352)
     Traceback (most recent call last):
