@@ -39,8 +39,10 @@ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 # import load_from_json_file() func to load all file contend into a json
 load_from_json_f = __import__('6-load_from_json_file').load_from_json_file
 
+# save python list to json obj
+json_obj = python_list
 # call the ``save_to_json_file`` func to save the python list to a json obj
-save_to_json_file(python_list, json_file)
+save_to_json_file(json_obj, json_file)
 
 # call the load_from_json_file to read the json file and tranform to pyobj
 load_from_json_f(json_file)
