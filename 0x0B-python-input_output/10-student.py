@@ -18,8 +18,8 @@ class Student:
         """ retrieves a dictionary representation of a
         Student instance"""
         # check if attrs is a list of strs
-        if isinstance(attrs, list) and
-        all(isinstance(attr, str) for attr in attrs):
+        if isinstance(attrs, list) and\
+                all(isinstance(attr, str) for attr in attrs):
             return {attr: getattr(self, attr) for attr in attrs if
                     hasattr(self, attr)}
         else:
