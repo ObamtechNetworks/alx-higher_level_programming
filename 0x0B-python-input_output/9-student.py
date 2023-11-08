@@ -24,5 +24,9 @@ class Student:
         # create an empty student dict attr
         student_dict_attr = {}
         # return dict repre in Student,by calling the class to json func
-        student_dict_attr = class_to_json(self)
+        for key, value in self.__dict__.items():
+            # verify collect required attributes
+            if isinstance(value, (list, dict, str, int, bool)):
+                student_dict_attr[key] = value
+
         return student_dict_attr
