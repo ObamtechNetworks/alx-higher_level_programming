@@ -9,7 +9,7 @@ import json
 def load_from_json_file(filename):
     """this function creates an object from a JSON file
 
-    it opens the given filename for reading and creates a 
+    it opens the given filename for reading and creates a
     JSON represnation from it and returns the JSON representation
     """
     # open the file for reading
