@@ -26,6 +26,10 @@ def class_to_json(obj):
         # verify if attribute is serializable
         if isinstance(value, (list, dict, str, int, bool)):
             obj_attr[key] = value
+        elif hasattr(value, '__dict__'):  # chk if value is a class inst
+            obj_attr[key] = class_to_json(value)  # Recursively serialzie
+        else:
+            raise TypeError(f"Type {type(value)} is not serializable")
 
     # return a dict of the collected obj attribute
     return obj_attr
