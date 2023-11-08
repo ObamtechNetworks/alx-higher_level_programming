@@ -3,10 +3,6 @@
 """
 
 
-# import the class to json module
-class_to_json = __import__('8-class_to_json').class_to_json
-
-
 class Student:
     """A class that representating a student object
     It has a method which retrieves the dictionary repre of itself
