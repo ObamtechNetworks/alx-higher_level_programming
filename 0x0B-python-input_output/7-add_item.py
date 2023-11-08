@@ -18,31 +18,26 @@ file permissions / exceptions is not managed
 import sys
 import json  # imports the json module
 
-# save CLI args to a file
-cmd_args = sys.argv
+# import the save_to_json_file() func to save all args to a json file
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 
-# create an empty list that takes in all the command line args
-python_list = []
+# import load_from_json_file() func to load all file content into a json
+load_from_json_f = __import__('6-load_from_json_file').load_from_json_file
 
-# append all the command line arguments to the list
-for args in range(1, len(cmd_args)):
-    python_list.append(cmd_args[args])
-
-# print(python_list)  # prints the python list
+# save CLI args to a variable
+cmd_args = sys.argv[1:]  # exclude program name
 
 # store the instructed filename into a label
 json_file = "add_item.json"
 
-# import the save_to_json_file() func to save all args to a json file
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-
-# import load_from_json_file() func to load all file contend into a json
-load_from_json_f = __import__('6-load_from_json_file').load_from_json_file
-
-# save python list to json obj
-json_obj = python_list
-# call the ``save_to_json_file`` func to save the python list to a json obj
-save_to_json_file(json_obj, json_file)
-
 # call the load_from_json_file to read the json file and tranform to pyobj
-load_from_json_f(json_file)
+try:
+    json_obj = load_from_json_f(json_file)
+except FileNotFoundError:
+    json_obj = []
+
+# append data to existing list
+json_obj.extend(cmd_args)
+
+# call the ``save_to_json_file`` func to save the cmd args to a json obj
+save_to_json_file(json_obj, json_file)
