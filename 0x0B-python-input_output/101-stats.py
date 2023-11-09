@@ -49,7 +49,7 @@ for i, line in enumerate(sys.stdin, 1):
     # splits each line in the stdin in into parts by whitespace
     parts = line.split()
 
-    if len(parts) >= 2:
+    try:
         # collects second to the last elem in parts, which is the stat code
         stat_code = int(parts[-2])
 
@@ -67,6 +67,8 @@ for i, line in enumerate(sys.stdin, 1):
             # for every 10 line print stat code
             if i % 10 == 0:
                 print_stats()
+    except Exception:
+        continue
 
 # call the print_stats() func to print final statistics
 print_stats()
