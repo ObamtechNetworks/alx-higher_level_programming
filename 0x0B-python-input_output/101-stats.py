@@ -43,8 +43,6 @@ def print_stats(signum=None, frame=None):
     print("File size: {}".format(total_size))
     for stat_code in sorted(stat_codes.keys()):
         print("{}: {}".format(stat_code, stat_codes[stat_code]))
-    if signum is not None:
-        raise KeyboardInterrupt
 
 
 # signal handler for SIGINT (sent by Ctrl+C) it calls, the print_stats func
