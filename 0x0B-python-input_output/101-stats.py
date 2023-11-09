@@ -70,7 +70,7 @@ for i, line in enumerate(sys.stdin, 1):
                 # for every 10 line print stat code
                 if i % 10 == 0:
                     print_stats()
-        except Exception:
+        except (Exception, IndexError, ValueError):
             continue
 
 # call the print_stats() func to print final statistics
