@@ -53,11 +53,11 @@ for i, line in enumerate(sys.stdin, 1):
     if len(parts) >= 2:
 
         try:
-            # cllct second to the last elem in parts, whch is the stat code
-            stat_code = int(parts[-2])
-
             # cllct file size, whch is the last elem in parts, parse to int
             file_size = int(parts[-1])
+
+            # cllct second to the last elem in parts, whch is the stat code
+            stat_code = int(parts[-2])
 
             # Check if the status code is in the list of default stat codes
             if stat_code in def_stat_codes:
@@ -72,6 +72,8 @@ for i, line in enumerate(sys.stdin, 1):
                     print_stats()
         except (Exception, IndexError, ValueError):
             continue
+    else:
+        continue
 
 # call the print_stats() func to print final statistics
 print_stats()
