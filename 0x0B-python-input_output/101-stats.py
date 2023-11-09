@@ -24,14 +24,9 @@ status codes is printed in ascending order
 
 import sys  # module required to read from stdin
 import signal  # required to handle keyboard interruption/signal
-from collections import defaultdict
 
 
-def_stat_codes = {200: 0, 301: 0, 400: 0, 401: 0,
-                  403: 0, 404: 0, 405: 0, 500: 0}
-
-# Start with a defaultdict for the status_codes
-stat_codes = defaultdict(int, def_stat_codes)
+stat_codes = {}  # dictionary to keep track fo the status codes/counts
 total_size = 0  # variable to keep track of the total file size
 
 
@@ -53,24 +48,21 @@ for i, line in enumerate(sys.stdin, 1):
     # splits each line in the stdin in into parts by whitespace
     parts = line.split()
 
-    # only if there are valid status codes
-    if len(parts) >= 2:
+    # collects second to the last elem in parts, which is the status code
+    stat_code = parts[-2]
 
-        # collect second to the last elem in parts, which is the stat code
-        stat_code = int(parts[-2])
+    # collects file size, which is the last elem in parts, parse to int
+    file_size = int(parts[-1])
 
-        # collects file size, which is the last elem in parts, parse to int
-        file_size = int(parts[-1])
+    # this line counts the occurrence of each status code
+    stat_codes[stat_code] = stat_codes.get(stat_code, 0) + 1
 
-        # this line counts the occurrence of each status code
-        stat_codes[stat_code] += 1
+    # stores total file size by summing all file size for each line @ stdin
+    total_size += file_size
 
-        # stores total file size by sum all file size for each line @ stdin
-        total_size += file_size
-
-        # for every 10 line print stat code
-        if i % 10 == 0:
-            print_stats()
+    # for every 10 line print stat code
+    if i % 10 == 0:
+        print_stats()
 
 # call the print_stats() func to print final statistics
 print_stats()
