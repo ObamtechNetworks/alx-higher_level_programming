@@ -49,26 +49,29 @@ for i, line in enumerate(sys.stdin, 1):
     # splits each line in the stdin in into parts by whitespace
     parts = line.split()
 
-    try:
-        # collects second to the last elem in parts, which is the stat code
-        stat_code = int(parts[-2])
+    # check if parts has at least two elements
+    if len(parts) >= 2:
 
-        # collects file size, which is the last elem in parts, parse to int
-        file_size = int(parts[-1])
+        try:
+            # cllct second to the last elem in parts, whch is the stat code
+            stat_code = int(parts[-2])
 
-        # Check if the status code is in the list of default status codes
-        if stat_code in def_stat_codes:
-            # this line counts the occurrence of each status code
-            stat_codes[stat_code] = stat_codes.get(stat_code, 0) + 1
+            # cllct file size, whch is the last elem in parts, parse to int
+            file_size = int(parts[-1])
 
-            # total file size by sum all file size for each line @stdin
-            total_size += file_size
+            # Check if the status code is in the list of default stat codes
+            if stat_code in def_stat_codes:
+                # this line counts the occurrence of each status code
+                stat_codes[stat_code] = stat_codes.get(stat_code, 0) + 1
 
-            # for every 10 line print stat code
-            if i % 10 == 0:
-                print_stats()
-    except Exception:
-        continue
+                # total file size by sum all file size for each line @stdin
+                total_size += file_size
+
+                # for every 10 line print stat code
+                if i % 10 == 0:
+                    print_stats()
+        except Exception:
+            continue
 
 # call the print_stats() func to print final statistics
 print_stats()
