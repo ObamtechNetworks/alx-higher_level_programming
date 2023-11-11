@@ -48,6 +48,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.height, 20)
         self.assertEqual(rectangle.x, 3)
         self.assertEqual(rectangle.y, 4)
+        self.assertEqual(rectangle.id, 1)
 
     def test_nb_objects(self):
         """tests how many objects created per instance"""
@@ -77,6 +78,11 @@ class TestRectangle(unittest.TestCase):
 
         # test total number of objects
         self.assertEqual(Base._Base__nb_objects, 3)
+
+    def test_str_as_id(self):
+        """tests str as id"""
+        r1 = Rectangle(1, 2, 0, 0, 'str')
+        self.assertEqual(r1.id, 'str')
 
 if __name__ == '__main__':
     unittest.main()
