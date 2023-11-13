@@ -31,8 +31,28 @@ class Square(Rectangle):
             raise ValueError("width must be > 0")
         # set width and height with the same value
         self.width = value
-        self.heigth = value
+        self.height = value
         self.__size = value
+
+    def update(self, *args, **kwargs):
+        """updates the attributes from this method if present"""
+        attributes = ['id', 'size', 'x', 'y']
+        if len(args) >= 1:
+            for index, value in enumerate(args):
+                setattr(self, attributes[index], value)
+        else:
+            for key, value in kwargs.items():
+                if key in attributes:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of the square"""
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+            }
 
     def __str__(self):
         """prints str representation of Square"""

@@ -53,7 +53,7 @@ class TestRectangle(unittest.TestCase):
     def test_nb_objects(self):
         """tests how many objects created per instance"""
         rect1 = Rectangle(width=2, height=3)
-        rect2 = Rectangle(0, 0)
+        rect2 = Rectangle(2, 1)
         rect2.width = 3
         rect2.height = 6
         rect3 = Rectangle(1, 2, 0, 0)
