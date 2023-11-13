@@ -114,9 +114,10 @@ class Rectangle(Base):
         attributes = ['id', 'width', 'height', 'x', 'y']
 
         # set the attributes using the setattr function
-        if len(args) >= 1:
+        if len(args) != 0:
             for index, value in enumerate(args):
-                setattr(self, attributes[index], value)
+                if index < len(attributes):
+                    setattr(self, attributes[index], value)
         else:
             for key, value in kwargs.items():
                 if key in attributes:
