@@ -839,35 +839,35 @@ class TestRectangle_update_args(unittest.TestCase):
             r.update(33, 9, 5, "invalid", "invalid")
 
 
-class Testrectangle_updating_kwargs(unittest.TestCase):
-    """Unittests for testing update kwargs method of the Rectangle class."""
+class TestRectangle_updating_kwargs(unittest.TestCase):
+    """unit tests for update kwargs method of the Rectangle class"""
 
-    def test_update_kwargs_one(self):
+    def test_update_kwargs_with_one_arg(self):
         r = Rectangle(10, 10, 10, 10, 10)
-        r.update(id=1)
-        self.assertEqual("[Rectangle] (1) 10/10 - 10/10", str(r))
+        r.update(id=30)
+        self.assertEqual("[Rectangle] (30) 10/10 - 10/10", str(r))
 
-    def test_update_kwargs_two(self):
+    def test_update_kwargs_with_two_args(self):
         r = Rectangle(10, 10, 10, 10, 10)
-        r.update(width=2, id=1)
-        self.assertEqual("[Rectangle] (1) 10/10 - 2/10", str(r))
+        r.update(width=2, id=22)
+        self.assertEqual("[Rectangle] (22) 10/10 - 2/10", str(r))
 
-    def test_update_kwargs_three(self):
-        r = Rectangle(10, 10, 10, 10, 10)
-        r.update(width=2, height=3, id=89)
-        self.assertEqual("[Rectangle] (89) 10/10 - 2/3", str(r))
+    def test_update_kwargs_with_three_args(self):
+        r = Rectangle(10, 22, 3, 2, 1)
+        r.update(width=2, height=3, id=88)
+        self.assertEqual("[Rectangle] (88) 3/2 - 2/3", str(r))
 
-    def test_update_kwargs_four(self):
+    def test_update_kwargs_with_four(self):
         r = Rectangle(10, 10, 10, 10, 10)
         r.update(id=89, x=1, height=2, y=3, width=4)
         self.assertEqual("[Rectangle] (89) 1/3 - 4/2", str(r))
 
-    def test_update_kwargs_five(self):
+    def test_update_kwargs_with_five(self):
         r = Rectangle(10, 10, 10, 10, 10)
         r.update(y=5, x=8, id=99, width=1, height=2)
         self.assertEqual("[Rectangle] (99) 8/5 - 1/2", str(r))
 
-    def test_update_kwargs_None_id(self):
+    def test_update_kwargs_with_None_as_id(self):
         r = Rectangle(10, 10, 10, 10, 10)
         r.update(id=None)
         correct = "[Rectangle] ({}) 10/10 - 10/10".format(r.id)
@@ -880,17 +880,17 @@ class Testrectangle_updating_kwargs(unittest.TestCase):
         self.assertEqual(correct, str(r))
 
     def test_update_kwargs_twice(self):
-        r = Rectangle(10, 10, 10, 10, 10)
-        r.update(id=89, x=1, height=2)
+        r = Rectangle(7, 3, 3, 3, 232)
+        r.update(id=400, x=1, height=2)
         r.update(y=3, height=15, width=2)
-        self.assertEqual("[Rectangle] (89) 1/3 - 2/15", str(r))
+        self.assertEqual("[Rectangle] (400) 1/3 - 2/15", str(r))
 
-    def test_update_kwargs_invalid_width_type(self):
+    def test_update_kwargs_with_invalid_width_type(self):
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r.update(width="invalid")
+            r.update(width="string")
 
-    def test_update_kwargs_width_zero(self):
+    def test_update_kwargs_width_with_zero(self):
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             r.update(width=0)
@@ -951,21 +951,21 @@ class Testrectangle_updating_kwargs(unittest.TestCase):
         self.assertEqual("[Rectangle] (89) 19/7 - 10/5", str(r))
 
 
-class Testrectangle_to_dict(unittest.TestCase):
+class TestRectangle_to_dict(unittest.TestCase):
     """Unittests for testing to_dictionary method of the Rectangle class."""
 
     def test_to_dictionary_output(self):
         r = Rectangle(10, 2, 1, 9, 5)
-        correct = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
-        self.assertDictEqual(correct, r.to_dictionary())
+        expected = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
+        self.assertDictEqual(expected, r.to_dictionary())
 
-    def test_to_dictionary_no_object_changes(self):
+    def test_to_dictionary_two_instances(self):
         r1 = Rectangle(10, 2, 1, 9, 5)
         r2 = Rectangle(5, 9, 1, 2, 10)
         r2.update(**r1.to_dictionary())
         self.assertNotEqual(r1, r2)
 
-    def test_to_dictionary_arg(self):
+    def test_to_dictionary_with_arg(self):
         r = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
             r.to_dictionary(1)
