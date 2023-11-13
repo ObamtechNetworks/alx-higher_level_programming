@@ -64,11 +64,11 @@ class Base:
             list_objs = []
         else:
             list_objs = [obj.to_dictionary() for obj in list_objs]
-        
+
         # open the file
         filename = f"{cls.__name__}.json"
         json_str = cls.to_json_string(list_objs)
-        
+
         # write the JSON representation to file
         with open(filename, "w") as json_file:
             json_file.write(json_str)
