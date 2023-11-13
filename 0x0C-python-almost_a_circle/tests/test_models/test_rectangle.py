@@ -310,10 +310,185 @@ class TestRectangle_height_values(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(2, -5)
 
+class TestRectangle_x_values(unittest.TestCase):
+    """tests x instantiation with different data types"""
 
-    def test_zero_as_height_value(self):
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            Rectangle(9, 0)
+    def test_None_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 10, None)
+
+
+    def test_str_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(2, 15, "my string")
+
+
+    def test_x_as_width(self):
+         with self.assertRaisesRegex(TypeError, "x must be an integer"):
+             Rectangle(3, 5, 3.335)
+
+
+    def test_x_as_height_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(3, 10, complex(2, 3))
+
+
+    def test_dict_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(3, 3, {"id1":7, "id2":6})
+
+
+    def test_set_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 8, {2, 4, 6})
+
+
+    def test_list_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 3, [3, 5, 7])
+
+
+    def test_range_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 8, range(4))
+
+
+    def test_tuple_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 12, (6, 8, 10))
+
+
+    def test_frozen_set_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 3, frozenset({1, 5, 4, 8}))
+
+
+    def test_bytes_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(3, 3, b'unittesting')
+
+
+    def test_bytearray_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(5, 3, bytearray(b'bytes'))
+
+
+    def test_memoryview_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(6, 2, memoryview(b'unittests'))
+
+
+    def test_positive_inf_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 4, float('inf'))
+
+    def test_neg_inf_height_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(5, 6, float('-inf'))
+
+
+    def test_nan_as_x_value(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(5, 6, float('nan'))
+
+
+    def test_neg_x_value(self):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Rectangle(3, 2, -5)
+
+
+    def test_zero_as_x_value(self):
+        self.assertEqual(Rectangle(9, 3, 0).x, 0)
+
+class TestRectangle_y_values(unittest.TestCase):
+    """tests y instantiation with different data types"""
+
+    def test_None_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 10, 2, None)
+
+
+    def test_str_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(2, 15, 3, "my string")
+
+
+    def test_y_as_width(self):
+         with self.assertRaisesRegex(TypeError, "y must be an integer"):
+             Rectangle(3, 5, 4, 3.335)
+
+
+    def test_y_as_height_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(3, 10, 3, complex(2, 3))
+
+
+    def test_dict_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(3, 3, 4, {"id1":7, "id2":6})
+
+
+    def test_set_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 8, 3, {2, 4, 6})
+
+
+    def test_list_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 3, 3, [3, 5, 7])
+
+
+    def test_range_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(4, 8, 3, range(4))
+
+
+    def test_tuple_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(4, 12, 3, (6, 8, 10))
+
+
+    def test_frozen_set_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(4, 3, 2, frozenset({1, 5, 4, 8}))
+
+
+    def test_bytes_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(3, 3, 3, b'unittesting')
+
+
+    def test_bytearray_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 3, 3, bytearray(b'bytes'))
+
+
+    def test_memoryview_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(6, 2, 3, memoryview(b'unittests'))
+
+
+    def test_positive_inf_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(4, 4, 3, float('inf'))
+
+    def test_neg_inf_height_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 6, 3, float('-inf'))
+
+
+    def test_nan_as_y_value(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 6, 3, float('nan'))
+
+
+    def test_neg_y_value(self):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Rectangle(3, 2, 2, -5)
+
+
+    def test_zero_as_y_value(self):
+        self.assertEqual(Rectangle(9, 3, 0, 0).y, 0)
 
 class TestRectangle_id(unittest.TestCase):
     """creates different test cases (methods) for the rectangle cls"""
