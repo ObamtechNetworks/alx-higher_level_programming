@@ -60,13 +60,16 @@ class Base:
         filename must be  <Class name>.json - e.g Rectangle.json
         """
         # convert the list instances to a serializable list
-        list_objs = [obj.to_dictionary() for obj in list_objs]
-        # open the file
-        filename = f"{cls.__name__}.json"
-        json_str = cls.to_json_string(list_objs)
-        with open(filename, "w") as json_file:
-            # call the static method to write the JSON repre. to the file
-            json_file.write(json_str)
+        if list_objs is None or len(list_objs) == 0:
+            list_objs = []
+        else:
+            list_objs = [obj.to_dictionary() for obj in list_objs]
+            # open the file
+            filename = f"{cls.__name__}.json"
+            json_str = cls.to_json_string(list_objs)
+            with open(filename, "w") as json_file:
+                # call static method to write the JSON repre. to the file
+                json_file.write(json_str)
 
     @classmethod
     def create(cls, **dictionary):
