@@ -7,6 +7,7 @@ the square inherits from the rectangle class
 
 
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class Square(Rectangle):
@@ -25,9 +26,9 @@ class Square(Rectangle):
     @size.setter
     def size(self, value):
         if not type(value) is int:
-            raise TypeError("width must be an integer")
+            raise TypeError("size must be an integer")
         if value <= 0:
-            raise ValueError("width must be > 0")
+            raise ValueError("size must be > 0")
         # set width and height with the same value
         self.width = value
         self.height = value
@@ -36,9 +37,10 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """updates the attributes from this method if present"""
         attributes = ['id', 'size', 'x', 'y']
-        if len(args) >= 1:
+        if len(args) != 0:
             for index, value in enumerate(args):
-                setattr(self, attributes[index], value)
+                if index < len(attributes):
+                    setattr(self, attributes[index], value)
         else:
             for key, value in kwargs.items():
                 if key in attributes:
