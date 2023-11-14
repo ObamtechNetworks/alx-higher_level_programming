@@ -6,6 +6,7 @@ import unittest
 import sys
 import io
 import csv
+import os
 
 # import the rectangle class
 from models.rectangle import Rectangle
@@ -916,6 +917,24 @@ class TestRectangle_to_dict(unittest.TestCase):
         r = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
             r.to_dictionary(1)
+
+
+class TestRectangle_save_to_file(unittest.TestCase):
+    """Unit test for testing the save_to_file method"""
+
+    @classmethod
+    def tearDown(self):
+        """Deletes any created files"""
+        try:
+            os.remove("Rectangle.json")
+        except IOError:
+            pass
+
+    def test_save_to_file_json(self):
+        """tests save object to file method"""
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            self.assertTrue("[]", f.read())
 
 
 if __name__ == '__main__':
