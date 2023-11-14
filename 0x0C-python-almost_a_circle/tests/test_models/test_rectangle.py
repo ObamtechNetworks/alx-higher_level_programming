@@ -283,6 +283,11 @@ class TestRectangle_height_values(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(2, -5)
 
+    def test_height_zero(self):
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            Rectangle(1, 0)
+
+
 
 class TestRectangle_x_values(unittest.TestCase):
     """tests x instantiation with different data types"""
