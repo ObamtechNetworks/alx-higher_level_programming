@@ -7,6 +7,7 @@ import unittest
 import sys
 import io
 import csv
+import os
 
 # import the base, square and square class
 from models.square import Square
@@ -751,6 +752,30 @@ class TestSquare_to_dict(unittest.TestCase):
         r = Square(10, 2, 4, 2)
         with self.assertRaises(TypeError):
             r.to_dictionary(1)
+
+
+class TestSquae_save_to_file(unittest.TestCase):
+    """Unit test for testing the save_to_file Square method"""
+
+    @classmethod
+    def tearDown(self):
+        """Deletes any created files"""
+        try:
+            os.remove("Square.json")
+        except IOError:
+            pass
+
+    def test_save_to_file_json_empty_list(self):
+        """tests save object to file method"""
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertTrue("[]", f.read())
+
+    def test_save_to_file_json_None(self):
+        """tests save object to file method"""
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertTrue("[]", f.read())
 
 
 if __name__ == '__main__':

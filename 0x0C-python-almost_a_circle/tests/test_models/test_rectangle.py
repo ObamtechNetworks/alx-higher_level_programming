@@ -289,7 +289,6 @@ class TestRectangle_height_values(unittest.TestCase):
             Rectangle(1, 0)
 
 
-
 class TestRectangle_x_values(unittest.TestCase):
     """tests x instantiation with different data types"""
 
@@ -930,7 +929,7 @@ class TestRectangle_save_to_file(unittest.TestCase):
         except IOError:
             pass
 
-    def test_save_to_file_json(self):
+    def test_save_to_file_json_empty_list(self):
         """tests save object to file method"""
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
