@@ -15,5 +15,5 @@ ALTER TABLE first_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode
 -- CONVERT THE name FIELD IN first_table to UTF8
 ALTER TABLE first_table MODIFY name VARCHAR(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Explicitly set the id column to int with the original length (e.g., int(11))
-ALTER TABLE first_table MODIFY id INT(11);
+-- Explicitly set the id column to int)
+ALTER TABLE first_table MODIFY id INT;
