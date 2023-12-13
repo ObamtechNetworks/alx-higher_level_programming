@@ -1,2 +1,3 @@
+-- table description
 -- prints full table description
-SHOW CREATE TABLE first_table\G;
+SHOW CREATE TABLE first_table;
