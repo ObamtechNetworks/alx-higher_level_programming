@@ -3,7 +3,7 @@
 -- don't list rows without a name value
 -- records should be listed by descending score
 -- the database name will be passed as an argument of the mysql commande
-SELECT name, score
+SELECT score, name
 FROM second_table
 WHERE name IS NOT NULL
 ORDER BY score DESC;
