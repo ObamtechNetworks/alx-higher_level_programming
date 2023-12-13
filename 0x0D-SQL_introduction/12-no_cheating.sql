@@ -3,5 +3,4 @@
 -- the database name will be passed as an argument of the mysql commande
 UPDATE second_table
 SET score = 10
-WHERE name = 'Bob'
-LIMIT 1;
+WHERE name = 'Bob';
