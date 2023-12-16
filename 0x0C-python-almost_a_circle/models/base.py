@@ -173,7 +173,7 @@ class Base:
             for _ in range(2):
                 rect_turtle.forward(rectangle.width)
                 rect_turtle.left(90)
-            rect_turtle.pendup()
+            rect_turtle.penup()
 
         # create turtle for drawing squares
         square_turtle = turtle.Turtle()
