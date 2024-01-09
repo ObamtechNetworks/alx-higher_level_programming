@@ -6,5 +6,5 @@ if (arg.length < 1) {
 } else if (arg.length === 1) {
   console.log('Argument found');
 } else {
-  console.log('Argument founds');
+  console.log('Arguments found');
 }
