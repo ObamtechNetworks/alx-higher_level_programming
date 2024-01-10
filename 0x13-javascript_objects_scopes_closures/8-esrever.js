@@ -1,14 +1,23 @@
-// reverseModule.js
+#!/usr/bin/node
 
-function esrever(list) {
+exports.esrever = function (list) {
+// get the middle value ==> 4
+// loop from beginning to middle: 2, 3,
+// swap last element with first element: length - 1 - i = >
+// length = 2, -1  => 1, - i ==> i = 0 ==> 1,
+// length == 2, - 1, - i (2) ==> 1 -  1
+
   const length = list.length;
-  const middle = Math.floor(length / 2);
+  const middle = Math.floor(length / 2); // get the integer val from lowest
 
-  for (let i = 0; i < middle; i++) {
+  // do swapping
+  let i = 0;
+  while (i < middle) {
     const temp = list[i];
     list[i] = list[length - 1 - i];
     list[length - 1 - i] = temp;
+    i++;
   }
-}
 
-module.exports = { esrever };
+  return list;
+};
