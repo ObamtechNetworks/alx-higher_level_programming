@@ -10,7 +10,7 @@ if __name__ == '__main__':
     # create a connection running on localhost port 3306
     db = MySQLdb.connect(
             host="localhost", port=3306, user="root",
-            passwd="Obamidele2023!!!", db="hbtn_0e_0_usa",
+            passwd="root", db="hbtn_0e_0_usa",
             charset="utf8")
 
     cur = db.cursor()  # create a cursor in MySQL python
