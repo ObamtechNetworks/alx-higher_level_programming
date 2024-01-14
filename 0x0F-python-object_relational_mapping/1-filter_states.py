@@ -10,7 +10,18 @@ import sys
 
 
 def states_starting_with_N(username, password, dbname):
-    """lists states starting with 'N' using MySQLdb module"""
+    """
+    Lists states starting with 'N' using MySQLdb module.
+
+    Args:
+        username (str): MySQL username.
+        password (str): MySQL password.
+        dbname (str): Database name.
+
+    Returns:
+        None
+    """
+
     # create a connection running on localhost port 3306
     db = MySQLdb.connect(
             host="localhost", port=3306, user=username,
