@@ -35,7 +35,8 @@ def states_starting_with_N(username, password, dbname):
     cur.execute(query)
     query_rows = cur.fetchall()
     for rows in query_rows:
-        print(rows)
+        if rows[1][0] == 'N':
+            print(rows)
 
     # close cursor and db connection
     cur.close()
