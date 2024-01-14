@@ -32,12 +32,13 @@ def states_based_on_user_input(username, password, dbname, user_input):
     cur = db.cursor()  # create a cursor in MySQL python
 
     # lists all state from db
-    query = "SELECT * FROM states WHERE name LIKE '{}' ORDER BY states.id ASC"\
-            .format(user_input)
+    query = """SELECT * FROM states WHERE name LIKE '{:s}' 
+    ORDER BY states.id ASC""".format(user_input)
     cur.execute(query)
     query_rows = cur.fetchall()
     for rows in query_rows:
-        print(rows)
+        if rows[1] == user_input:
+            print(rows)
 
     # close cursor and db connection
     cur.close()
