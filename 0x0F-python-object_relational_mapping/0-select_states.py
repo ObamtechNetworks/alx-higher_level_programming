@@ -7,12 +7,6 @@ if __name__ == '__main__':
     import MySQLdb
     import sys
 
-    # check number of arguments
-    args = sys.argv
-
-    if len(args) != 4:
-        sys.exit(0)
-
     # create a connection running on localhost port 3306
     db = MySQLdb.connect(
             host="localhost", port=3306, user="root",
