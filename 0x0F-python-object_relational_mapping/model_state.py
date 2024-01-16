@@ -16,18 +16,10 @@ Base = declarative_base()
 
 
 class State(Base):
+    """a state class to be used as ORM mapper for sqlalchemy"""
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)  # cannot be null
-
-
-DB_URL = "mysql://{}:{}@localhost:3306"
-
-# define the connection engine
-engine = create_engine(DB_URL)
-
-# bind the engine to the metadata of the Base Class
-Base.metadata.create_all(engine)
 
 
 '''
