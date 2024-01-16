@@ -31,9 +31,7 @@ def state_obj_with_user_input(username, password, db_name, state_name):
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    find_match = session.query(State).filter(State.name.like(
-        f'%{state_name}%')).order_by(
-                State.id).all()
+    find_match = session.query(State).filter(State.name == state_name).order_by(State.id).all()
 
     if find_match:
         for state in find_match:
