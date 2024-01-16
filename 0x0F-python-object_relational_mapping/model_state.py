@@ -21,6 +21,7 @@ class State(Base):
     name = Column(String(128), nullable=False)  # cannot be null
 
 
+'''
 def main(username, password, db_name):
     """ to execute the MYSQL connection and session"""
 
@@ -46,3 +47,4 @@ if __name__ == '__main__':
 
     if len(args) == 4:
         main(args[1], args[2], args[3])
+'''
