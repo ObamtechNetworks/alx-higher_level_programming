@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """This module defines a class definition of a `State and an instance
 `Base = declarative_base()` of the SQLAlchemy library
 This is used to for the ORM mapping and configuration
@@ -8,8 +8,8 @@ This is used to for the ORM mapping and configuration
 # import modules
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-import sys
+# from sqlalchemy.orm import sessionmaker
+# import sys
 
 # create a Base instance
 Base = declarative_base()
