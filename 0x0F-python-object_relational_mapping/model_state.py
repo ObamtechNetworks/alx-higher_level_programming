@@ -21,6 +21,15 @@ class State(Base):
     name = Column(String(128), nullable=False)  # cannot be null
 
 
+DB_URL = "mysql://{}:{}@localhost:3306"
+
+# define the connection engine
+engine = create_engine(DB_URL)
+
+# bind the engine to the metadata of the Base Class
+Base.metadata.create_all(engine)
+
+
 '''
 def main(username, password, db_name):
     """ to execute the MYSQL connection and session"""
