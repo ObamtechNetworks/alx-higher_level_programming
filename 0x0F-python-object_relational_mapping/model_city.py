@@ -12,6 +12,7 @@ from model_state import Base
 # from sqlalchemy.orm import sessionmaker
 # import sys
 
+
 class City(Base):
     """a city class to be used as ORM mapper for sqlalchemy"""
     __tablename__ = 'cities'
