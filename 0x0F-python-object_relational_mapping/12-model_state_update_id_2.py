@@ -36,7 +36,7 @@ def change_state_name(username, password, db_name):
 
     # execute the update statement
     session.execute(update_statement)
-    
+
     # commit changes to database
     session.commit()
 
