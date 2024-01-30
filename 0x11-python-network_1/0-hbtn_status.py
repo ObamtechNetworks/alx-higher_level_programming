@@ -20,6 +20,6 @@ def openURL(url):
     - content: {html}
     - utf8 content: {html.decode('utf-8')}""")
 
-
-url = "https://alx-intranet.hbtn.io/status"
-openURL(url)
+if __name__ == "__main__":
+    url = "https://alx-intranet.hbtn.io/status"
+    openURL(url)
