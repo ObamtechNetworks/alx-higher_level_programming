@@ -1,4 +1,4 @@
-#!/usr/python3
+#!/usr/bin/python3
 """finds the peak in list of unsorted integers"""
 
 
