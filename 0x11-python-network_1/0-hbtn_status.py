@@ -19,10 +19,9 @@ def openURL(url):
         pass
 
     # print output based on the response read
-    print(f"""Body response:
-    - type: {type(html)}
-    - content: {html}
-    - utf8 content: {html.decode('utf-8')}""")
+    print(
+            f"Body response:\n\t- type: {type(html)}\n\t- content: {html}\n\t"
+            f"- utf8 content: {html.decode('utf-8')}")
 
 
 if __name__ == "__main__":
