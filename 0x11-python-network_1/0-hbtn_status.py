@@ -20,7 +20,7 @@ def openURL(url):
 
     # print output based on the response read
     print(f"""\
-    - {type(html)}
+    - type: {type(html)}
     - content: {html}
     - utf8 content: {html.decode('utf-8')}""")
 
