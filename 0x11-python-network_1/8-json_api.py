@@ -33,7 +33,6 @@ def search_API(search_key=""):
         else:
             print("No result")
     except Exception as e:
-        print(str(e))
         print("Not a valid JSON")
 
 
