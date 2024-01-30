@@ -27,8 +27,10 @@ def get_github_user_id(username, access_token):
         if isinstance(json_data, dict) and 'id' in json_data:
             # Display the user id
             print(f"{json_data['id']}")
-    except ValueError:
-        print("Not a valid JSON")
+        else:
+            print(None)
+    except Exception as e:
+        print(None)
 
 
 if __name__ == "__main__":
