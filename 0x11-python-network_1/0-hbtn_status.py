@@ -19,7 +19,8 @@ def openURL(url):
         pass
 
     # print output based on the response read
-    print(f"""    - {type(html)}
+    print(f"""\
+    - {type(html)}
     - content: {html}
     - utf8 content: {html.decode('utf-8')}""")
 
