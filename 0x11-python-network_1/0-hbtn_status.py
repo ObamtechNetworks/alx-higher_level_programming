@@ -11,9 +11,12 @@ def openURL(url):
     Args: url -> str --> the url to open
     """
     # open the given url
-    with urllib.request.urlopen(
-            'https://alx-intranet.hbtn.io/status') as response:
-        html = response.read()
+    try:
+        with urllib.request.urlopen(
+                'https://alx-intranet.hbtn.io/status') as response:
+            html = response.read()
+    except Exception as e:
+        pass
 
     # print output based on the response read
     print(f"""    - {type(html)}
