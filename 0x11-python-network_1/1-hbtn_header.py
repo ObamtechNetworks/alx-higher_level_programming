@@ -16,7 +16,6 @@ def fetch_header(url):
     in the header of the response
     Args: url -> str --> the url to open
     """
-    html_id = ''
     # open the given url
     try:
         with urllib.request.urlopen(url) as response:
