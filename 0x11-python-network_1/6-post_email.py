@@ -18,8 +18,8 @@ def post_email(url, email):
     (email):(str) -> the email to send POST request
     """
     # open the given url
-    email_body = requests.post(url, email={'email': email})
-    print(email_body.txt)
+    email_body = requests.post(url, data={'email': email})
+    print(email_body.text)
 
 
 if __name__ == "__main__":
