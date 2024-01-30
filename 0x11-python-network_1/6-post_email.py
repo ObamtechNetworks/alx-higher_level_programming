@@ -9,7 +9,7 @@ import sys
 
 
 # create funtion for clean code
-def openURL(url, email):
+def post_email(url, email):
     """
     To open given urls and send POST request
     using the requests package
@@ -18,9 +18,9 @@ def openURL(url, email):
     (email):(str) -> the email to send POST request
     """
     # open the given url
-    email_body = requests.post(url, data={'email': email})
+    email_body = requests.post(url, email={'email': email})
     print(email_body.txt)
 
 
 if __name__ == "__main__":
-    openURL(sys.argv[1], sys.argv[2])
+    post_email(sys.argv[1], sys.argv[2])
