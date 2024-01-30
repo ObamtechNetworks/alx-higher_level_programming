@@ -2,13 +2,6 @@
 ### Overview
 This project, titled "Python - Network #1," is an ongoing second chance project led by Guillaume, the CTO at Holberton School. The project started on January 26, 2024, at 6:00 AM and is scheduled to end by January 31, 2024, at 6:00 AM. An auto review will be conducted at the deadline.
 
-# Project Details
-- Weight: 1
-- Auto QA Review:
-- Mandatory: 0.0/75
-- Optional: 0.0/8
-- Altogether: 0.0%
-
 # Learning Objectives:
 - Fetch internet resources using the Python package urllib
 - Decode urllib body response
