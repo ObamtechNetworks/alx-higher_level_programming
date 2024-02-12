@@ -1,13 +1,14 @@
 #!/usr/bin/node
-const arg = process.argv.slice(2);
+// a script that calculates the factorial of a number
+const arg = process.argv.slice(2)[0];
 
 function factorial (n) {
-  if (n === 0 || n === 1 || Number.isNaN(n)) {
+  if (n === 0 || n === 1 || isNaN(n)) {
     return 1;
   } else {
     return n * factorial(n - 1);
   }
 }
 
-const number = parseInt(arg[0]);
+const number = parseInt(arg);
 console.log(factorial(number));
