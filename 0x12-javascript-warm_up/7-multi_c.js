@@ -1,10 +1,10 @@
 #!/usr/bin/node
-const arg = process.argv.slice(2);
+const arg = process.argv.slice(2)[0]; // collect cmd arg directly
 
 const string = 'C is fun';
 let i = 0;
+const toInt = parseInt(arg);
 
-const toInt = parseInt(arg[0]);
 if (!isNaN(toInt)) {
   while (i < toInt) {
     console.log(string);
