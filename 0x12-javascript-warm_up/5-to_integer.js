@@ -3,9 +3,8 @@
 
 const arg = process.argv.slice(2)[0]; // get the first cmd arg
 
-const toNum = Number(arg); // convert the arg to number using Number constructor
-
-console.log(Number.isFinite(toNum) ? `My number: ${toNum}` : 'Not a number');
+const toInt = parseInt(arg); // convert the arg to number using Number constructor
+console.log(!isNaN(toInt) ? `My number: ${toInt}` : 'Not a number');
 
 /**
 const arg = process.argv.slice(2);
