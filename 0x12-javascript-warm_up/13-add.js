@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
-function add (a, b) {
+// make function visible to the outside
+exports.add = function add (a, b) {
   return parseInt(a) + parseInt(b);
-}
-
-exports.add = add;
+};
