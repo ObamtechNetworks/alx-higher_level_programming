@@ -6,7 +6,7 @@ function add (a, b) {
   return parseInt(a) + parseInt(b);
 }
 
-const first_num = arg[0];
-const second_num = arg[1];
+const firstNum = arg[0];
+const secondNum = arg[1];
 
-console.log(add(first_num, second_num));
+console.log(add(firstNum, secondNum));
