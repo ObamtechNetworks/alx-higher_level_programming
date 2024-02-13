@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// a script that creates a Rectangle class and then have a print method 
+// a script that creates a Rectangle class and then have a print method
 // which prints the rectangle shape
 
 class Rectangle {

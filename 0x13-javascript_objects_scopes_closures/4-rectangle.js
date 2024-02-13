@@ -1,12 +1,13 @@
 #!/usr/bin/node
 
+// create a Rectangle class in JavaScript
 class Rectangle {
   constructor (w, h) {
     if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
     } else {
-      // Empty block
+      // Empty block return an empty class
     }
   }
 
@@ -23,12 +24,13 @@ class Rectangle {
   }
 
   rotate () {
+    // use a temp variable for the swapping or rotation
     const temp = this.width;
     this.width = this.height;
     this.height = temp;
   }
 
-  double () {
+  double () { // doubles the value of the width and height when method is called
     this.width *= 2;
     this.height *= 2;
   }
