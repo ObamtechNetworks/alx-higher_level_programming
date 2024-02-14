@@ -7,6 +7,11 @@ class Square extends OldSquare {
     this.size = size;
   }
 
+  double () {
+    super.double();
+    this.size *= 2;
+  }
+
   charPrint (c) {
     if (c === undefined || c === null) { // check for falsy fvalues
       c = 'X';
