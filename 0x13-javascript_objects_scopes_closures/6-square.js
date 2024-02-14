@@ -11,14 +11,10 @@ class Square extends Rectangle {
     if (c === undefined) {
       c = 'X';
     }
-    let i = 0;
-    while (i < this.size) {
-      let j = 0;
+    for (let i = 0; i < this.size; i++) {
       let row = '';
-      i++;
-      while (j < this.size) {
+      for (let j = 0; j < this.size; j++) {
         row += c;
-        j++;
       }
       console.log(row);
     }
