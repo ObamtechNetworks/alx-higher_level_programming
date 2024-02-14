@@ -8,7 +8,7 @@ class Square extends OldSquare {
   }
 
   charPrint (c) {
-    if (c === undefined) {
+    if (c === undefined || c === null) { // check for falsy fvalues
       c = 'X';
     }
 
