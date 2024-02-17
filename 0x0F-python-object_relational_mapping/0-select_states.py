@@ -1,26 +1,41 @@
 #!/usr/bin/python3
-"""Thismodule defines a script that runs sql queries using MySQLdb"""
+"""
+This module defines a script that runs sql queries using MySQLdb
+It lists all states
+"""
 
 
-# import the module
+# import the MySQLdb module
 import MySQLdb
 import sys
 
 # create a func for this
 
 
-def states_lists(username, password, dbname):
-    """lists states using MySQLdb module"""
-    # create a connection running on localhost port 3306
+def list_states(username, password, dbname):
+    """
+    lists states using MySQLdb module
+    Args:
+        (username):(str) -> the sql database username
+        (password):(str) -> password of the sql database
+        (dbname):(str) -> the database to use
+    """
+    # FOLLOW THE STEPS IN USING MySQLdb
+
+    # STEP 1: create a connection running on localhost with port 3306
     db = MySQLdb.connect(
             host="localhost", port=3306, user=username,
             passwd=password, db=dbname,
             charset="utf8")
 
+    # STEP 2: create a cursor
     cur = db.cursor()  # create a cursor in MySQL python
 
-    # lists all state from db
+    # STEP 3: BEGIN TO EXECUTE QUERIES
+    # lists all state from db, first create the basic SQL query
     cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+
+    # STEP 4: FETCH RESULT, USING fetchall since
     query_rows = cur.fetchall()
     for rows in query_rows:
         print(rows)
@@ -33,4 +48,4 @@ def states_lists(username, password, dbname):
 if __name__ == '__main__':
     args = sys.argv
     if len(args) == 4:
-        states_lists(args[1], args[2], args[3])
+        list_states(args[1], args[2], args[3])
