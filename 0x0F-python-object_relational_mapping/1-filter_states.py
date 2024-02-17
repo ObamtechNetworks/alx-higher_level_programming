@@ -38,7 +38,7 @@ def states_starting_with_N(username, password, dbname):
 
     # STEP 3, execute the SQL query
     cur.execute(query)
-    
+
     # STEP 4, fetch all the results
     query_rows = cur.fetchall()
     for rows in query_rows:
