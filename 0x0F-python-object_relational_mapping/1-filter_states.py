@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-"""This module defines a script that runs sql queries using MySQLdb"""
+"""
+This module defines a script that runs sql queries using MySQLdb
+"""
 
 
-# import the module
+# import the MySQLdb module
 import MySQLdb
 import sys
 
@@ -22,17 +24,22 @@ def states_starting_with_N(username, password, dbname):
         None
     """
 
-    # create a connection running on localhost port 3306
+    # STEP 1: create a connection running on localhost port 3306
     db = MySQLdb.connect(
             host="localhost", port=3306, user=username,
             passwd=password, db=dbname,
             charset="utf8")
 
+    # STEP 2: create cursor
     cur = db.cursor()  # create a cursor in MySQL python
 
-    # lists all state from db
+    # QUERY to list all state from db
     query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
+
+    # STEP 3, execute the SQL query
     cur.execute(query)
+    
+    # STEP 4, fetch all the results
     query_rows = cur.fetchall()
     for rows in query_rows:
         if rows[1][0] == 'N':
