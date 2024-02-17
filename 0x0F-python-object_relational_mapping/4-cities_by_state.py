@@ -57,4 +57,4 @@ def list_cities(username, password, dbname):
 if __name__ == '__main__':
     args = sys.argv
     if len(args) == 4:
-        cities_lists(args[1], args[2], args[3])
+        list_cities(args[1], args[2], args[3])
