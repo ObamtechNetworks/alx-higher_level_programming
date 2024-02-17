@@ -57,4 +57,4 @@ def show_states_based_on_user_input(username, password, dbname, user_input):
 if __name__ == '__main__':
     args = sys.argv
     if len(args) == 5:
-        states_based_on_user_input(args[1], args[2], args[3], args[4])
+        show_states_based_on_user_input(args[1], args[2], args[3], args[4])
