@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This module defines a script that runs sql queries using MySQLdb"""
+"""
+This module defines a script that runs sql queries using MySQLdb
+"""
 
 
 # import the module
@@ -9,8 +11,15 @@ import sys
 # create a func for this
 
 
-def cities_lists(username, password, dbname):
-    """lists all cities using MySQLdb module"""
+def list_cities(username, password, dbname):
+    """
+    lists all cities using MySQLdb module
+    Args:
+        (username: str): the username of the database
+        (password: str): the database access password
+        (dbname: str): the database name
+    """
+    # STEP 1: create connection
     # create a connection running on localhost port 3306
     db = MySQLdb.connect(
             host="localhost",
@@ -20,8 +29,10 @@ def cities_lists(username, password, dbname):
             db=dbname,
             charset="utf8")
 
+    # STEP 2: create cursor
     cur = db.cursor()  # create a cursor in MySQL python
 
+    # STEP 3: QUERY TO EXECUTE
     # lists all state from db
     query = """
     SELECT cities.id, cities.name, states.name FROM cities
@@ -29,11 +40,15 @@ def cities_lists(username, password, dbname):
     ORDER BY cities.id ASC
     """
 
+    # STEP 4: EXECUTE QUERY
     cur.execute(query)
+
+    # STEP 5: fetch results
     query_rows = cur.fetchall()
     for rows in query_rows:
         print(rows)
 
+    # STEP 6: close connection
     # close cursor and db connection
     cur.close()
     db.close()
