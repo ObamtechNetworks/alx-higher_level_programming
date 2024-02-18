@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""module defines a script that lists all objects
-from an inputted database"""
+"""module defines a script that lists objects
+from a given database"""
 
 
 from model_state import Base, State

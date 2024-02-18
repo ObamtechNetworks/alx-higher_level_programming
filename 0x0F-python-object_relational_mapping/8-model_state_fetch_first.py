@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""module defines a script that lists all objects
+"""module defines a script that lists objects
 from an given database"""
 
-
+# import models State and Base (declarive_base)
 from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
@@ -48,4 +48,7 @@ def list_first_state_obj_sql_alchemy_style(username, password, db_name):
 
 
 if __name__ == "__main__":
-    list_first_state_obj_sql_alchemy_style(sys.argv[1], sys.argv[2], sys.argv[3])
+    list_first_state_obj_sql_alchemy_style(
+            sys.argv[1],
+            sys.argv[2],
+            sys.argv[3])
