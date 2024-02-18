@@ -1,21 +1,21 @@
 #!/usr/bin/python3
 """
-A module that creates the `State` `California` with the `City`: `San Fransisco`
+A module that lists all states and cities objects in the db
 from the database `hbtn_0e_100_usa`
 """
 
 
 # import necessary sqlalchemy modules
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, joinedload
 from sqlalchemy import create_engine
 from relationship_state import State, Base
 from relationship_city import City
 import sys
 
 
-def create_state_and_city_frm_DB(username, password, db_name):
+def list_states_n_cities(username, password, db_name):
     """
-    creates the state `California` and city `San Fransisco`
+    lists all states objects with correspoinding cities
     Args:
         username: (str): A username of the database
         password: (str): The database password
@@ -38,24 +38,17 @@ def create_state_and_city_frm_DB(username, password, db_name):
     Session = sessionmaker(bind=engine)
     session = Session()  # create session instance
 
-    # create the state object instance
-    state1 = State(name="California")
-
-    # create the City object instance and reference it's state
-    city1 = City(name="San Fransisco", state=state1)
-
-    state1.cities.append(city1)
-
-    # add the State and City object to the database session
-    session.add(state1)
-
-    # commit changes to the database session
-    session.commit()
-
+    # list states with corresponding cities
+    states = session.query(State).options(joinedload(State.cities)).all()
+    # print the results
+    for state in states:
+        print(f"{state.id}: {state.name}")
+        for city in state.cities:
+            print(f"\t{city.id}: {city.name}")
     # close the session
     session.close()
 
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
-        create_state_and_city_frm_DB(sys.argv[1], sys.argv[2], sys.argv[3])
+        list_states_n_cities(sys.argv[1], sys.argv[2], sys.argv[3])
