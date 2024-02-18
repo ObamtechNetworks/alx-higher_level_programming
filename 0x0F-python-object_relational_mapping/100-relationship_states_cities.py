@@ -4,6 +4,7 @@ A module that creates the `State` `California` with the `City`: `San Fransisco`
 from the database `hbtn_0e_100_usa`
 """
 
+# script should not run when imported
 if __name__ == '__main__':
 
     # import necessary sqlalchemy modules
@@ -24,10 +25,7 @@ if __name__ == '__main__':
 
         # STEP 1: CREATE CONNECTION
         DB_URL = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
-                username,
-                password,
-                db_name)
-
+                username, password, db_name)
         # CREATE ENGINE
         engine = create_engine(DB_URL, pool_pre_ping=True)
 
@@ -37,21 +35,17 @@ if __name__ == '__main__':
         # create the session FOR CRUD OPERATIONS
         Session = sessionmaker(bind=engine)
         session = Session()  # create session instance
-
         # create the state object instance
         state1 = State(name="California")
 
         # create the City object instance and reference it's state
         city1 = City(name="San Fransisco", state=state1)
-
         state1.cities.append(city1)
 
         # add the State and City object to the database session
         session.add(state1)
-
         # commit changes to the database session
         session.commit()
-
         # close the session
         session.close()
 
