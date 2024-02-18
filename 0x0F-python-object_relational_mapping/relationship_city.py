@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This module defines a class definition of a `City`
-and an instance `Base = declarative_base()` of the SQLAlchemy library
+and an instance `declarative_base()` of the SQLAlchemy library
 This is used to for the ORM mapping and configuration
 """
 

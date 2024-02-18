@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A module that creates the State `California` with the City: `San Fransisco`
+A module that creates the `State` `California` with the `City`: `San Fransisco`
 from the database `hbtn_0e_100_usa`
 """
 
@@ -8,9 +8,9 @@ from the database `hbtn_0e_100_usa`
 # import necessary sqlalchemy modules
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-import sys
 from relationship_state import State, Base
 from relationship_city import City
+import sys
 
 
 def create_state_and_city_frm_DB(username, password, db_name):
