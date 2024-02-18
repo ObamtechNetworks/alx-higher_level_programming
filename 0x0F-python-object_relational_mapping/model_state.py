@@ -16,7 +16,7 @@ Base = declarative_base()
 
 
 class State(Base):
-    """a state class to be used as ORM mapper for sqlalchemy"""
+    """a state class model to be used as ORM mapper for sqlalchemy"""
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)  # cannot be null
