@@ -54,5 +54,5 @@ def create_state_and_city_frm_DB(username, password, db_name):
 
 
 if __name__ == '__main__':
-    if len(sys.argv == 4):
+    if len(sys.argv) == 4:
         create_state_and_city_frm_DB(sys.argv[1], sys.argv[2], sys.argv[3])
