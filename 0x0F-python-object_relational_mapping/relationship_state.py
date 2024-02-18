@@ -31,5 +31,5 @@ class State(Base):
     from relationship_city import City
     cities = relationship(
             "City",
-            cascade="all, delete-orphan",
+            cascade="all, delete, delete-orphan",
             backref='state')
