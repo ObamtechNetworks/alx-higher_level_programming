@@ -52,6 +52,8 @@ def create_state_and_city_frm_DB(username, password, db_name):
     # commit changes to the database session
     session.commit()
 
+    # close the session
+    session.close()
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
