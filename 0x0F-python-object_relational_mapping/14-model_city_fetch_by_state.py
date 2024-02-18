@@ -3,6 +3,7 @@
 from the database hbtn_0e_14_usa
 """
 
+# import the models
 from model_state import Base, State
 from model_city import City
 from sqlalchemy import (create_engine)
@@ -18,23 +19,25 @@ def fetch_city_objs(username, password, db_name):
     db_name (str): the given database name
     """
 
-    # construct URL
+    # CREATE CONNECTION
     DB_URL = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
             username,
             password,
             db_name)
 
-    # establish connection
+    # CREATE ENGINE
     engine = create_engine(DB_URL, pool_pre_ping=True)
+    # MIGRATE OBJECTS TO TABLE
     Base.metadata.create_all(engine)  # create table
 
-    # create the session
+    # create the session FOR CRUD OPERATIONS
     Session = sessionmaker(bind=engine)
-    session = Session()
+    session = Session()  # create session instance
 
+    # query to list all cities & states, where city.state_id matches State.id
     cities_states = session.query(City, State).filter(
             City.state_id == State.id).order_by(City.id).all()
-
+    # print the state name, city id and city name in the format below
     for city, state in cities_states:
         print("{}: ({}) {}".format(state.name, city.id, city.name))
 
