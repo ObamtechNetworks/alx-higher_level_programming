@@ -39,7 +39,8 @@ def list_states_n_cities(username, password, db_name):
     session = Session()  # create session instance
 
     # list cities with corresponding states from City Object
-    cities = session.query(City).options(joinedload(City.state)).order_by(City.id).all()
+    cities = session.query(City).options(
+        joinedload(City.state)).order_by(City.id).all()
     # print the results
     for city in cities:
         print(f"{city.id}: {city.name} -> {city.state.name}")
