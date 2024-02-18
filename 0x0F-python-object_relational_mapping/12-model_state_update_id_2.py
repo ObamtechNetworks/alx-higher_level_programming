@@ -33,18 +33,30 @@ def change_state_name_sqlalchemy_style(username, password, db_name):
     session = Session()  # SESSION INSTANCE
 
     # QUERY to update the record where id = 2
-    update_statement = update(State).where(
-            State.id == 2).values(name="New Mexico")
+    state_to_update = session.query(State).filter_by(id=2).first()
+
+    # check if the record exists before updating
+    if state_to_update:
+        # update the 'name' attribute
+        state_to_update.name = "New Mexico"
+
+        # commit changes to the database
+        session.commit()
+
+    # ALTERNATIVE METHOD
+    # update_statement = update(State).where(
+    #        State.id == 2).values(name="New Mexico")
 
     # EXECUTE the  update statement
-    session.execute(update_statement)
+    # session.execute(update_statement)
 
     # commit changes to database
-    session.commit()
+    # session.commit()
 
-    states = session.query(State).order_by(State.id).all()
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    # PRINT updated state id and name
+    # states = session.query(State).order_by(State.id).all()
+    # for state in states:
+    #    print("{}: {}".format(state.id, state.name))
 
     # close the session
     session.close()
