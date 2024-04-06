@@ -6,12 +6,6 @@ from the database `hbtn_0e_100_usa`
 """
 
 if __name__ == '__main__':
-    """
-    A module that creates the `State` `California` with the `City`:
-    `San Fransisco`
-    from the database `hbtn_0e_100_usa`
-    """
-
     # import necessary sqlalchemy modules
     from sqlalchemy.orm import sessionmaker
     from sqlalchemy import create_engine
