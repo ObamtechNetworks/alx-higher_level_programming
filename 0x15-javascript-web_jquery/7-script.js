@@ -1,0 +1,18 @@
+$(document).ready(function () {
+  const characterElement = $('#character'); // cache the dom element for reuse
+  // Fetch data from the URL
+  fetch('https://swapi-api.alx-tools.com/api/people/5/?format=json').then(response => {
+  // check if the response is successful
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    // pares the respone to JSON format
+    return response.json();
+  }).then(data => {
+  // Extract the character name from the data
+    characterElement.text(data.name);
+  }).catch(error => {
+  // handle any errors that occurs during fetch operation
+    console.error('Error fetching data:', error);
+  });
+});
